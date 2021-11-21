@@ -1,52 +1,90 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScrollController : MonoBehaviour
 {
     public GameObject scrollbar;
+    public GameObject[] selectors;
+    public GameObject[] levelIcons;
     public float scroll_pos = 0;
-    public float[] pos;
-    public float distance = 1f;
+    public int currentLevel = 1;
+    public int totalLevels = 10;
+    public float currentPos = 0.0f;
+    public float[] positions = { 0.0f, 0.25171f, 0.50126f, 0.74863f, 1.0f };
+    Dictionary<int, int> levelPositions;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        pos = new float[transform.childCount];
-        distance = 1f / (pos.Length - 1f);
-        for (int i = 0; i < pos.Length; i++)
-        {
-            pos[i] = distance * i;
-        }
+        levelPositions = new Dictionary<int, int>();
+        levelPositions.Add(1, 0);
+        levelPositions.Add(2, 0);
+        levelPositions.Add(3, 1);
+        levelPositions.Add(4, 1);
+        levelPositions.Add(5, 2);
+        levelPositions.Add(6, 2);
+        levelPositions.Add(7, 3);
+        levelPositions.Add(8, 3);
+        levelPositions.Add(9, 4);
+        levelPositions.Add(10, 4);
+        levelIcons[currentLevel - 1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
     }
-
-    // Update is called once per frame
-    void Update()
+    public void selectLevel(GameObject selectedLevel)
     {
-        
-
-        if (Input.GetMouseButton(0))
+        int pos = Array.FindIndex(levelIcons, item => item == selectedLevel);
+        foreach (var level in levelIcons)
         {
-            scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
+            level.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
-        else
+        levelIcons[pos].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        currentLevel = pos+1;
+    }
+    public void prevClick()
+    {
+
+        if (currentLevel > 1)
         {
-            for (int i = 0; i < pos.Length; i++)
+            currentLevel--;
+            int pos = levelPositions[currentLevel];
+            foreach (var level in levelIcons)
             {
-                if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
-                {
-                    scrollbar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollbar.GetComponent<Scrollbar>().value, pos[i], 0.1f);
-                }
+                level.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
+            levelIcons[currentLevel - 1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            foreach (var item in selectors)
+            {
+                item.transform.GetChild(0).gameObject.SetActive(false);
+            }
+            selectors[pos].transform.GetChild(0).gameObject.SetActive(true);
+
+            currentPos = positions[pos];
+            scrollbar.GetComponent<Scrollbar>().value = currentPos;
         }
 
-
-        for (int i = 0; i < pos.Length; i++)
+    }
+    public void nextClick()
+    {
+        if (currentLevel < 10)
         {
-            if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
+            currentLevel++;
+            foreach (var level in levelIcons)
             {
-                Debug.LogWarning("Current Selected Level" + i);
+                level.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            levelIcons[currentLevel - 1].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            if (currentLevel <= 9)
+            {
+                int pos = levelPositions[currentLevel];
+                currentPos = positions[pos];
+                foreach (var item in selectors)
+                {
+                    item.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                selectors[pos].transform.GetChild(0).gameObject.SetActive(true);
+
+                scrollbar.GetComponent<Scrollbar>().value = currentPos;
             }
         }
 
