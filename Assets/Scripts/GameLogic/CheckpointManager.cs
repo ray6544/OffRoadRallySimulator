@@ -23,6 +23,7 @@ public class CheckpointManager : MonoBehaviour
     private void Awake()
     {
         checkpointList = GameObject.FindGameObjectsWithTag("CheckPoint");
+        Debug.Log(checkpointList.Length);
         if (checkpointList != null)
         {
             foreach (GameObject entry in checkpointList)
@@ -33,7 +34,7 @@ public class CheckpointManager : MonoBehaviour
         PlayerData data = SaveSystem.LoadData();
         if(data!=null){
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.position = new Vector3(data.position[0],data.position[1],data.position[2]);
+            //player.transform.position = new Vector3(data.position[0],data.position[1],data.position[2]);
             checkPointsPassed = data.checkPointsCrossed;
         }
         startTime = Time.time;

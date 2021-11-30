@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 0a281344c0f39414191e84807cd6acca
+  - enabled: 1
+    path: Assets/OffroadTracks/OffroadTracks/Scenes/level01.unity
+    guid: 815d8eb9183a96b4dbb955a92c406135
   m_configObjects: {}

@@ -10,7 +10,6 @@ public class ScrollController : MonoBehaviour
     public GameObject[] levelIcons;
     public float scroll_pos = 0;
     public int currentLevel = 1;
-    public int totalLevels = 10;
     public float currentPos = 0.0f;
     public float[] positions = { 0.0f, 0.25171f, 0.50126f, 0.74863f, 1.0f };
     Dictionary<int, int> levelPositions;
@@ -39,7 +38,7 @@ public class ScrollController : MonoBehaviour
             level.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
         levelIcons[pos].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        currentLevel = pos+1;
+        currentLevel = pos + 1;
     }
     public void prevClick()
     {
@@ -88,5 +87,25 @@ public class ScrollController : MonoBehaviour
             }
         }
 
+    }
+
+    // Formula y1 = 2x, element y2 = 2x+1 e.g. x= 0 ; y1 = 2(0) => 0 ; y2 = 2(0)+1 => 1;
+    public void changeSelector(GameObject selector)
+    {
+        int pos = Array.FindIndex(selectors, item => item == selector);
+        foreach (var item in selectors)
+        {
+            item.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        selectors[pos].transform.GetChild(0).gameObject.SetActive(true);
+        currentLevel = 2 * (pos);
+        int nextLevel = 2 * pos + 1;
+        foreach (var level in levelIcons)
+        {
+            level.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+        levelIcons[currentLevel].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        currentPos = positions[pos];
+        scrollbar.GetComponent<Scrollbar>().value = currentPos;
     }
 }
