@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Checkpoint
+    second: {fileID: 2100000, guid: 9bac2786d54d51e468b1d95ce1a2deca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Finish
+    second: {fileID: 2100000, guid: 23128ef4827de544fb4dc0a3833352c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #42
+    second: {fileID: 2100000, guid: 043190ec22dda65409bf3ef8910c558a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #43
+    second: {fileID: 2100000, guid: 89f29725ec3d62648838742798612df9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Start
+    second: {fileID: 2100000, guid: 8720603666b85a240a4367d365773f85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: offroad_02_rocks
+    second: {fileID: 2100000, guid: 71e3907ddf35ee147ad33e38107a66d1, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
