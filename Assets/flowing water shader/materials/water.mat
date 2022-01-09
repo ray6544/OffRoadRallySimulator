@@ -102,7 +102,7 @@ Material:
     - _WorkflowMode: 0
     - _ZWrite: 0
     m_Colors:
-    - Color_9E57737E: {r: 0.37624598, g: 0.6738064, b: 0.8396226, a: 1}
+    - Color_9E57737E: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.9117647, g: 0.9452333, b: 1, a: 0.603}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
