@@ -1,0 +1,10 @@
+Converting script [1 / 1]	[\CameraRotation.cs]
+	Fragments : 1
+		[ 0] : Line:   18	InputMethod   GetAxis             	("Mouse X")
+
+
+1 scripts modified!
+Overwriting actual scripts...
+	[0 / 1] from  [C:/Users/Adil Khan/Documents/GitHub/OffRoadRallySimulator/CF2-Data/Script-Backups/2022-02-06-21-25\Assets-After/\CameraRotation.cs] to [C:/Users/Adil Khan/Documents/GitHub/OffRoadRallySimulator/Assets/\CameraRotation.cs]
+
+Overwriting COMPLETED!

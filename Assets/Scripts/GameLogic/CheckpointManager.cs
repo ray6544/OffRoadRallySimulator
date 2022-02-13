@@ -28,7 +28,7 @@ public class CheckpointManager : MonoBehaviour
         {
             foreach (GameObject entry in checkpointList)
             {
-                entry.GetComponent<CheckPoint>().manager = this;
+           
             }
         }
         PlayerData data = SaveSystem.LoadData();
@@ -51,7 +51,7 @@ public class CheckpointManager : MonoBehaviour
             }
             else
             {
-                checkpoint.activated = false;
+                
             }
         }
         PlayerData data = new PlayerData(checkPointsPassed,checkpoint.gameObject.transform.position);
@@ -70,11 +70,7 @@ public class CheckpointManager : MonoBehaviour
             foreach (GameObject checkpoint in checkpointList)
             {
                 // We search the activated checkpoint to get its position
-                if (checkpoint.GetComponent<CheckPoint>().activated)
-                {
-                    result = checkpoint.transform.position;
-                    break;
-                }
+                
             }
         }
         return result;

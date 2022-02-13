@@ -417,16 +417,6 @@ public class RCC_SceneManager : MonoBehaviour {
 
 	public void CheckCanvas(){
 
-		if (!activePlayerVehicle || !activePlayerVehicle.canControl || !activePlayerVehicle.gameObject.activeInHierarchy || !activePlayerVehicle.enabled) {
-
-//			if (activePlayerCanvas.displayType == RCC_UIDashboardDisplay.DisplayType.Full)
-//				activePlayerCanvas.SetDisplayType(RCC_UIDashboardDisplay.DisplayType.Off);
-
-			activePlayerCanvas.SetDisplayType(RCC_UIDashboardDisplay.DisplayType.Off);
-
-			return;
-
-		}
 
 //		if(!activePlayerCanvas.gameObject.activeInHierarchy)
 //			activePlayerCanvas.displayType = RCC_UIDashboardDisplay.DisplayType.Full;

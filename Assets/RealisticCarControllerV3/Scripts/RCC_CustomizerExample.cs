@@ -23,49 +23,46 @@ public class RCC_CustomizerExample : MonoBehaviour {
 	public static RCC_CustomizerExample Instance{	get{if(instance == null) instance = GameObject.FindObjectOfType<RCC_CustomizerExample>() as RCC_CustomizerExample; return instance;}}
 	#endregion
 
-	[Header("UI Menus")]
-	public GameObject wheelsMenu;
-	public GameObject configurationMenu;
-	public GameObject steeringAssistancesMenu;
-	public GameObject colorsMenu;
+	//[Header("UI Menus")]
+	//public GameObject wheelsMenu;
+	//public GameObject configurationMenu;
+	//public GameObject steeringAssistancesMenu;
+	//public GameObject colorsMenu;
 
-	[Header("UI Sliders")]
-	public Slider frontCamber;
-	public Slider rearCamber;
-	public Slider frontSuspensionDistances;
-	public Slider rearSuspensionDistances;
-	public Slider frontSuspensionDampers;
-	public Slider rearSuspensionDampers;
-	public Slider frontSuspensionSprings;
-	public Slider rearSuspensionSprings;
-	public Slider gearShiftingThreshold;
-	public Slider clutchThreshold;
+	//[Header("UI Sliders")]
+	//public Slider frontCamber;
+	//public Slider rearCamber;
+	//public Slider frontSuspensionDistances;
+	//public Slider rearSuspensionDistances;
+	//public Slider frontSuspensionDampers;
+	//public Slider rearSuspensionDampers;
+	//public Slider frontSuspensionSprings;
+	//public Slider rearSuspensionSprings;
+	//public Slider gearShiftingThreshold;
+	//public Slider clutchThreshold;
 
-	[Header("UI Toggles")]
-	public Toggle TCS;
-	public Toggle ABS;
-	public Toggle ESP;
-	public Toggle SH;
-	public Toggle counterSteering;
-	public Toggle steeringSensitivity;
-	public Toggle NOS;
-	public Toggle turbo;
-	public Toggle exhaustFlame;
-	public Toggle revLimiter;
-	public Toggle transmission;
+	//[Header("UI Toggles")]
+	//public Toggle TCS;
+	//public Toggle ABS;
+	//public Toggle ESP;
+	//public Toggle SH;
+	//public Toggle counterSteering;
+	//public Toggle steeringSensitivity;
+	//public Toggle NOS;
+	//public Toggle turbo;
+	//public Toggle exhaustFlame;
+	//public Toggle revLimiter;
+	//public Toggle transmission;
 
-	[Header("UI InputFields")]
-	public InputField maxSpeed;
-	public InputField maxBrake;
-	public InputField maxTorque;
+	//[Header("UI InputFields")]
+	//public InputField maxSpeed;
+	//public InputField maxBrake;
+	//public InputField maxTorque;
 
-	[Header("UI Dropdown Menus")]
+	//[Header("UI Dropdown Menus")]
 	public Dropdown drivetrainMode;
 
 	void Start(){
-
-		CheckUIs ();
-
 	}
 
 	public void CheckUIs (){
@@ -73,48 +70,48 @@ public class RCC_CustomizerExample : MonoBehaviour {
 		if (!RCC_SceneManager.Instance.activePlayerVehicle)
 			return;
 
-		frontCamber.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.camber;
-		rearCamber.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.camber;
-		frontSuspensionDistances.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.wheelCollider.suspensionDistance;
-		rearSuspensionDistances.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.wheelCollider.suspensionDistance;
-		frontSuspensionDampers.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.wheelCollider.suspensionSpring.damper;
-		rearSuspensionDampers.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.wheelCollider.suspensionSpring.damper;
-		frontSuspensionSprings.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.wheelCollider.suspensionSpring.spring;
-		rearSuspensionSprings.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.wheelCollider.suspensionSpring.spring;
-		gearShiftingThreshold.value = RCC_SceneManager.Instance.activePlayerVehicle.gearShiftingThreshold;
-		clutchThreshold.value = RCC_SceneManager.Instance.activePlayerVehicle.clutchInertia;
+		//frontCamber.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.camber;
+		//rearCamber.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.camber;
+		//frontSuspensionDistances.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.wheelCollider.suspensionDistance;
+		//rearSuspensionDistances.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.wheelCollider.suspensionDistance;
+		//frontSuspensionDampers.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.wheelCollider.suspensionSpring.damper;
+		//rearSuspensionDampers.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.wheelCollider.suspensionSpring.damper;
+		//frontSuspensionSprings.value = RCC_SceneManager.Instance.activePlayerVehicle.FrontLeftWheelCollider.wheelCollider.suspensionSpring.spring;
+		//rearSuspensionSprings.value = RCC_SceneManager.Instance.activePlayerVehicle.RearLeftWheelCollider.wheelCollider.suspensionSpring.spring;
+		//gearShiftingThreshold.value = RCC_SceneManager.Instance.activePlayerVehicle.gearShiftingThreshold;
+		//clutchThreshold.value = RCC_SceneManager.Instance.activePlayerVehicle.clutchInertia;
 
-		TCS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.TCS;
-		ABS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.ABS;
-		ESP.isOn = RCC_SceneManager.Instance.activePlayerVehicle.ESP;
-		SH.isOn = RCC_SceneManager.Instance.activePlayerVehicle.steeringHelper;
-		counterSteering.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useCounterSteering;
-		NOS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useNOS;
-		turbo.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useTurbo;
-		exhaustFlame.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useExhaustFlame;
-		revLimiter.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useRevLimiter;
-		transmission.isOn = RCC_Settings.Instance.useAutomaticGear;
+		//TCS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.TCS;
+		//ABS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.ABS;
+		//ESP.isOn = RCC_SceneManager.Instance.activePlayerVehicle.ESP;
+		//SH.isOn = RCC_SceneManager.Instance.activePlayerVehicle.steeringHelper;
+		//counterSteering.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useCounterSteering;
+		//NOS.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useNOS;
+		//turbo.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useTurbo;
+		//exhaustFlame.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useExhaustFlame;
+		//revLimiter.isOn = RCC_SceneManager.Instance.activePlayerVehicle.useRevLimiter;
+		//transmission.isOn = RCC_Settings.Instance.useAutomaticGear;
 
-		maxSpeed.text = RCC_SceneManager.Instance.activePlayerVehicle.maxspeed.ToString();
-		maxBrake.text = RCC_SceneManager.Instance.activePlayerVehicle.brakeTorque.ToString();
-		maxTorque.text = RCC_SceneManager.Instance.activePlayerVehicle.maxEngineTorque.ToString();
+		//maxSpeed.text = RCC_SceneManager.Instance.activePlayerVehicle.maxspeed.ToString();
+		//maxBrake.text = RCC_SceneManager.Instance.activePlayerVehicle.brakeTorque.ToString();
+		//maxTorque.text = RCC_SceneManager.Instance.activePlayerVehicle.maxEngineTorque.ToString();
 
 		switch (RCC_SceneManager.Instance.activePlayerVehicle.wheelTypeChoise) {
 
 		case RCC_CarControllerV3.WheelType.FWD:
-			drivetrainMode.value = 0;
+			//drivetrainMode.value = 0;
 			break;
 
 		case RCC_CarControllerV3.WheelType.RWD:
-			drivetrainMode.value = 1;
+			//drivetrainMode.value = 1;
 			break;
 
 		case RCC_CarControllerV3.WheelType.AWD:
-			drivetrainMode.value = 2;
+		//	drivetrainMode.value = 2;
 			break;
 
 		case RCC_CarControllerV3.WheelType.BIASED:
-			drivetrainMode.value = 3;
+		//	drivetrainMode.value = 3;
 			break;
 
 		}
@@ -128,10 +125,10 @@ public class RCC_CustomizerExample : MonoBehaviour {
 			return;
 		}
 
-		wheelsMenu.SetActive (false);
-		configurationMenu.SetActive (false);
-		steeringAssistancesMenu.SetActive (false);
-		colorsMenu.SetActive (false);
+		//wheelsMenu.SetActive (false);
+		//configurationMenu.SetActive (false);
+		//steeringAssistancesMenu.SetActive (false);
+		//colorsMenu.SetActive (false);
 
 		activeMenu.SetActive (true);
 
@@ -139,10 +136,10 @@ public class RCC_CustomizerExample : MonoBehaviour {
 
 	public void CloseAllMenus(){
 
-		wheelsMenu.SetActive (false);
-		configurationMenu.SetActive (false);
-		steeringAssistancesMenu.SetActive (false);
-		colorsMenu.SetActive (false);
+		//wheelsMenu.SetActive (false);
+		//configurationMenu.SetActive (false);
+		//steeringAssistancesMenu.SetActive (false);
+		//colorsMenu.SetActive (false);
 
 	}
 

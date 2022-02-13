@@ -39,8 +39,6 @@ public class RCC_Customization : MonoBehaviour {
 			if (cam)
 				cam.ChangeCamera (RCC_Camera.CameraMode.TPS);
 
-			if (UI)
-				UI.SetDisplayType(RCC_UIDashboardDisplay.DisplayType.Customization);
 
 		} else {
 
@@ -50,9 +48,6 @@ public class RCC_Customization : MonoBehaviour {
 
 			if (cam)
 				cam.ChangeCamera (RCC_Camera.CameraMode.TPS);
-
-			if (UI)
-				UI.SetDisplayType(RCC_UIDashboardDisplay.DisplayType.Full);
 
 		}
 
