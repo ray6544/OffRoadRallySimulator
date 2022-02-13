@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/2D.meta
+guid: b21b066fff1a16744a3f044df4d8f696
+=======
 guid: 97eb78a59ec5fbf4e9cc560b5a5ee276
+>>>>>>> edb51c8889a1b64f133f57627e27e2b7aeab72cd:Assets/ARPG Effects/Animation.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
