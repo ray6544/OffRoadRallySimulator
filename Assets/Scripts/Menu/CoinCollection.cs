@@ -24,14 +24,22 @@ public class CoinCollection : MonoBehaviour
         {
             IsActive = false;
             CoinObj.SetActive(false);
-            UiManager.instance.CoinsAnimation();
-            StartCoroutine(_coins());
+            if (PlayerPrefs.GetInt("CoinsRush") == 0)
+            {
+                UiManager.instance.CoinsAnimation();
+                StartCoroutine(_coins(5));
+            }
+            else if (PlayerPrefs.GetInt("CoinsRush") == 1)
+            {
+                StartCoroutine(_coins(3));
+            }
+            
         }
     }
-    IEnumerator _coins()
+    IEnumerator _coins(int coins)
     {
         yield return new WaitForSeconds(0.3f);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < coins; i++)
         {
             yield return new WaitForSeconds(0.008f);
             GameManager.instance.Coins++;

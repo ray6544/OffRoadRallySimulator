@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 4261627332783021112}
   - component: {fileID: 8072043264404349962}
   - component: {fileID: 6789368286951577788}
-  - component: {fileID: 7132133179808464982}
   m_Layer: 0
   m_Name: Checkpoint__5_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4398014220403231152
 Transform:
@@ -95,20 +94,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 683167071434760750, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133179808464982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64845699565023955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &560543959654010600
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,13 +266,12 @@ GameObject:
   - component: {fileID: 5012948909137884854}
   - component: {fileID: 7832429926495469866}
   - component: {fileID: 7696523781963747747}
-  - component: {fileID: 7132133180221738054}
   m_Layer: 0
   m_Name: Checkpoint__9_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8470072234461635438
 Transform:
@@ -364,20 +348,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -375802420263439524, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133180221738054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804031037558314380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &1017588644131664626
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,13 +360,12 @@ GameObject:
   - component: {fileID: 8411471598012840186}
   - component: {fileID: 4621922511649750210}
   - component: {fileID: 2095723674171752646}
-  - component: {fileID: 7132133179951830659}
   m_Layer: 0
   m_Name: Checkpoint__6_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5022745068357623835
 Transform:
@@ -473,20 +442,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7408141565168751015, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133179951830659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017588644131664626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &1483546780008391917
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,13 +487,12 @@ GameObject:
   - component: {fileID: 3785472290481306749}
   - component: {fileID: 2051839145448679699}
   - component: {fileID: 5534080897452487741}
-  - component: {fileID: 7132133179889722345}
   m_Layer: 0
   m_Name: Checkpoint__2_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2247444559622720780
 Transform:
@@ -615,20 +569,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3043584099382314582, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133179889722345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887115215463413962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &2140663199735861702
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,13 +675,12 @@ GameObject:
   - component: {fileID: 4989833837979933636}
   - component: {fileID: 5423298711666539131}
   - component: {fileID: 8284447715432679247}
-  - component: {fileID: 7132133179061045206}
   m_Layer: 0
   m_Name: Checkpoint__1_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8093096911384093216
 Transform:
@@ -818,20 +757,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1170152250233312344, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133179061045206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2406083936847972898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &2532571588927286935
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,13 +769,12 @@ GameObject:
   - component: {fileID: 6424490457997730023}
   - component: {fileID: 6296331425377153253}
   - component: {fileID: 999329526437910212}
-  - component: {fileID: 7132133179930343215}
   m_Layer: 0
   m_Name: Checkpoint__3_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7263665807832500432
 Transform:
@@ -927,20 +851,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1116411395056225731, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133179930343215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2532571588927286935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &2796084150255099526
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,13 +863,12 @@ GameObject:
   - component: {fileID: 6942346145754589332}
   - component: {fileID: 3023110916986848556}
   - component: {fileID: 5274473944106363771}
-  - component: {fileID: 7132133178605108981}
   m_Layer: 0
   m_Name: Checkpoint__4_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2164772015543933109
 Transform:
@@ -1036,20 +945,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2180737216167440143, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133178605108981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2796084150255099526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &2946989443169087475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,13 +957,12 @@ GameObject:
   - component: {fileID: 8912807007194615586}
   - component: {fileID: 7073750947062064914}
   - component: {fileID: 116546441425590002}
-  - component: {fileID: 7132133178186308400}
   m_Layer: 0
   m_Name: Checkpoint__7_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4795496848149947942
 Transform:
@@ -1145,20 +1039,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6384766643852691392, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133178186308400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2946989443169087475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &3606732792875775419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1084,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7630031164314152740
 Transform:
@@ -1242,13 +1122,12 @@ GameObject:
   - component: {fileID: 7753138213724557700}
   - component: {fileID: 4636625418065825258}
   - component: {fileID: 1944854941583407531}
-  - component: {fileID: 7132133180324113814}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6397346303918661682
 Transform:
@@ -1325,20 +1204,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3185056376471686388, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133180324113814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4082722798043929516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &4966441193825296695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,13 +1560,12 @@ GameObject:
   - component: {fileID: 4596559291125574427}
   - component: {fileID: 7407418574393472137}
   - component: {fileID: 3849278020360541180}
-  - component: {fileID: 7132133178654369990}
   m_Layer: 0
   m_Name: Checkpoint__8_
-  m_TagString: Untagged
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7195435102064630809
 Transform:
@@ -1778,20 +1642,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4605164020164049304, guid: 77ac2611037eebc4084e4abee717a4f9, type: 3}
---- !u!114 &7132133178654369990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538836262904816629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  manager: {fileID: 0}
 --- !u!1 &7628704891344918723
 GameObject:
   m_ObjectHideFlags: 0

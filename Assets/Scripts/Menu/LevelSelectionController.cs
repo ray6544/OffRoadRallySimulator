@@ -29,6 +29,7 @@ public class LevelSelectionController : MonoBehaviour
     void Init()
     {
         SoundManager.instance.GameMusic();
+        SoundManager.instance.AudioListnereMute(SoundManager.instance.GetSoundFx());
         levelPositions = new Dictionary<int, int>();
         levelPositions.Add(1, 0);
         levelPositions.Add(2, 0);
@@ -41,24 +42,27 @@ public class LevelSelectionController : MonoBehaviour
         levelPositions.Add(9, 4);
         levelPositions.Add(10, 4);
         levelIcons[currentLevel].transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        if (PlayerPrefs.GetInt("Levels"+ 0) == 0)
-            PlayerPrefs.SetInt("Levels"+0, 1);
+        InitializeLevels();
+        DataManager.instance.SetLevelNumber(currentLevel);
+        CoinsShow(DataManager.instance.GetCoins());
+    }
+    void InitializeLevels()
+    {
+        if (PlayerPrefs.GetInt("Levels" + 0) == 0)
+            PlayerPrefs.SetInt("Levels" + 0, 1);
         for (int i = 0; i < levelIcons.Length; i++)
         {
-            
-            if (PlayerPrefs.GetInt("Levels"+i) == 0)
+
+            if (PlayerPrefs.GetInt("Levels" + i) == 0)
             {
                 levelIcons[i].transform.GetChild(0).gameObject.SetActive(true);
             }
-            else if (PlayerPrefs.GetInt("Levels"+i) == 1)
+            else if (PlayerPrefs.GetInt("Levels" + i) == 1)
             {
                 levelIcons[i].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
-        DataManager.instance.SetLevelNumber(currentLevel);
-        CoinsShow(DataManager.instance.GetCoins());
     }
-    
     public void selectLevel(GameObject selectedLevel)
     {
         int pos = Array.FindIndex(levelIcons, item => item == selectedLevel);
@@ -172,7 +176,7 @@ public class LevelSelectionController : MonoBehaviour
     {
         SoundManager.instance.IsLoading(true);
         Debug.Log(DataManager.instance.GetLevelNumber());
-        Loading_panel.GetComponent<Splash>().LoadingSceneName = "Level" + DataManager.instance.GetLevelNumber();
+        Loading_panel.GetComponent<Splash>().LoadingSceneName = "Level"  + DataManager.instance.GetLevelNumber();
         Loading_panel.SetActive(true);
     }
     public void BackLevel()
@@ -183,10 +187,20 @@ public class LevelSelectionController : MonoBehaviour
     }
     public void Audio(AudioClip _audioClip)
     {
-        if (SoundManager.instance.GetSoundFx() == 0)
-        {
-            _audiosource.PlayOneShot(_audioClip);
-        }
+         _audiosource.PlayOneShot(_audioClip);
+       
+    }
+    private void OnEnable()
+    {
+        InAppPurchase._unlockAllLevels += InitializeLevels;
+    }
+    private void OnDisable()
+    {
+        InAppPurchase._unlockAllLevels -= InitializeLevels;
+    }
+    public void UnlockAllLevels_InApp()
+    {
+        InAppPurchase.instance.UnlockAllLevelsEvent();
     }
 }
 

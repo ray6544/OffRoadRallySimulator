@@ -58,8 +58,7 @@ public class SoundManager : MonoBehaviour
     }
     public void GameMusic()
     {
-        if (SoundFx == 0)
-        {
+       
 
             if (SceneManager.GetActiveScene().name != "GamePlay" && SceneManager.GetActiveScene().name != "Splash")
             {
@@ -78,14 +77,8 @@ public class SoundManager : MonoBehaviour
 
 
             }
-        }
-        else
-        {
-            if (MenuSounds.isPlaying)
-                MenuSounds.Stop();
-
-
-        }
+        
+        
     }
     //---------Setter and Getter---------
     public void SetSoundFx(int i)
@@ -96,6 +89,18 @@ public class SoundManager : MonoBehaviour
     public int GetSoundFx()
     {
         return SoundFx;
+    }
+    public void AudioListnereMute(int b)
+    {
+        if (b == 0)
+        {
+            AudioListener.volume = 1.0f;
+        }
+        else if (b == 1)
+        {
+            AudioListener.volume = 0.0f;
+        }
+
     }
     #endregion
 }

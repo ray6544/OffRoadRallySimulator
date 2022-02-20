@@ -45,7 +45,7 @@ public class MainMenuController : MonoBehaviour
     [Header("-----------Confirmation Panel")]
     public Popup ConfirmationPanel;
     public Text Confirmationtxt;
-    public enum Confirmation{Privacy=0,moregame=1,likeit=2};
+    public enum Confirmation{Privacy=0,moregame=1,likeit=2,CoinsRush=3};
     public Confirmation _confirmation;
     int ConfirmationIndex;
     public Popup PropertiesConfirmation;
@@ -89,18 +89,34 @@ public class MainMenuController : MonoBehaviour
     {
         SoundManager.instance.GameMusic();
         SoundUI(SoundManager.instance.GetSoundFx());
+        SoundManager.instance.AudioListnereMute(SoundManager.instance.GetSoundFx());
         CoinShow(DataManager.instance.GetCoins());
+        InitializeVehicles();
+        Vehicle(DataManager.instance.GetCarId());
+        Specification(DataManager.instance.GetCarId());
+        SetPlayerNameTag(DataManager.instance.GetCarId());
+    }
+    public void InitializeVehicles()
+    {
         if (PlayerPrefs.GetInt("VehicleUnlock" + 0) == 0)
             PlayerPrefs.SetInt("VehicleUnlock" + 0, 1);
         for (int i = 0; i < _vehicleProperties.Length; i++)
         {
             PlayerPrefs.GetInt("VehicleUnlock" + i);
-            
         }
-        VehicleSelection(DataManager.instance.GetCarId());
-        SetPlayerNameTag(DataManager.instance.GetCarId());
     }
-    
+    public  void InitializeVehicles_()
+    {
+        if (PlayerPrefs.GetInt("VehicleUnlock" + 0) == 0)
+            PlayerPrefs.SetInt("VehicleUnlock" + 0, 1);
+        for (int i = 0; i < _vehicleProperties.Length; i++)
+        {
+            PlayerPrefs.GetInt("VehicleUnlock" + i);
+           
+          
+        }
+        Specification(DataManager.instance.GetCarId());
+    }
     void CoinShow(int i)
     {
         coinstxt_grage.text = i.ToString();
@@ -433,7 +449,8 @@ public class MainMenuController : MonoBehaviour
             SoundManager.instance.SetSoundFx(0);
         }
         SoundUI(SoundManager.instance.GetSoundFx());
-        SoundManager.instance.GameMusic();
+        SoundManager.instance.AudioListnereMute(SoundManager.instance.GetSoundFx());
+        
     }
     void SoundUI(int i)
     {
@@ -528,6 +545,51 @@ public class MainMenuController : MonoBehaviour
         }
         PropertiesConfirmation.Toggle();
     }
+    public void OtherEventsConfirmationPanelUi(int index)
+    {
+        Audio(Click);
+        switch ((Confirmation)index)
+        {
+            case Confirmation.Privacy:
+                Confirmationtxt.text = "Do You Wanna Open Privacy Link ?";
+                ConfirmationIndex = index;
+                break;
+            case Confirmation.moregame:
+                Confirmationtxt.text = "Do You Wanna Open MoreGames Link ?";
+                ConfirmationIndex = index;
+                break;
+            case Confirmation.likeit:
+                Confirmationtxt.text = "Do You Wanna Rate This Game ?";
+                ConfirmationIndex = index;
+                break;
+            case Confirmation.CoinsRush:
+                Confirmationtxt.text = "Do You Wanna Open The Coins Rush Challenge ?";
+                ConfirmationIndex = index;
+                break;
+
+        }
+        ConfirmationPanel.Toggle();
+    }
+    public void Confirmation_yes()
+    {
+        Audio(Click);
+        switch ((Confirmation)ConfirmationIndex)
+        {
+            case Confirmation.Privacy:
+                PrivacyPolicy();
+                break;
+            case Confirmation.moregame:
+                Application.OpenURL(MoreGames_string);
+                break;
+            case Confirmation.likeit:
+                Application.OpenURL(LikeIt_string);
+                break;
+            case Confirmation.CoinsRush:
+                SelectionOfCoinsRush();
+                break;
+        }
+        ConfirmationPanel.Toggle();
+    }
     void SetPlayerNameTag(int index)
     {
         NameTag.transform.SetSiblingIndex(index);
@@ -540,10 +602,36 @@ public class MainMenuController : MonoBehaviour
     }
     public void Audio(AudioClip _audioClip)
     {
-        if (SoundManager.instance.GetSoundFx() == 0)
-        {
+        
             _audiosource.PlayOneShot(_audioClip);
+       
+    }
+    void SelectionOfCoinsRush()
+    {
+        if (!PlayerPrefs.HasKey("CoinsRush"))
+        {
+            PlayerPrefs.GetInt("CoinsRush");
         }
+        if (PlayerPrefs.GetInt("CoinsRush") == 0)
+        {
+            PlayerPrefs.SetInt("CoinsRush", 1);
+        }
+    }
+    private void OnEnable()
+    {
+        InAppPurchase._unlockAllVehicles += InitializeVehicles_;
+    }
+    private void OnDisable()
+    {
+        InAppPurchase._unlockAllVehicles -= InitializeVehicles_;
+    }
+    public void UunlockAllVehicles_InApp()
+    {
+        InAppPurchase.instance.UnlockAllVehiclesEvent();
+    }
+    public void RemoveAds_InApp()
+    {
+        InAppPurchase.instance.RemoveAdsEvent();
     }
 }
 [System.Serializable]

@@ -1,178 +1,478 @@
 fileFormatVersion: 2
 guid: 4d4c453753e5f3d4e91be13ea5d5c8b8
-timeCreated: 1497982919
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: driver_LOD0
-    100002: front_axle_LOD0
-    100004: front_axle_LOD1
-    100006: front_axle_root
-    100008: glass
-    100010: interior
-    100012: left_front
-    100014: left_rear
-    100016: lf_tire_LOD0
-    100018: lf_tire_LOD1
-    100020: lr_tire_LOD0
-    100022: lr_tire_LOD1
-    100024: main_root
-    100026: Object002
-    100028: rear_axle_LOD0
-    100030: rear_axle_LOD1
-    100032: rear_axle_root
-    100034: rf_tire_LOD0
-    100036: rf_tire_LOD1
-    100038: right_front
-    100040: right_rear
-    100042: rr_tire_LOD0
-    100044: rr_tire_LOD1
-    100046: //RootNode
-    100048: the_blaze_low
-    100050: underbody_low
-    100052: Object003
-    100054: collider
-    100056: glass_LOD0
-    100058: the_blaze_LOD0
-    100060: the_blaze_LOD1
-    400000: driver_LOD0
-    400002: front_axle_LOD0
-    400004: front_axle_LOD1
-    400006: front_axle_root
-    400008: glass
-    400010: interior
-    400012: left_front
-    400014: left_rear
-    400016: lf_tire_LOD0
-    400018: lf_tire_LOD1
-    400020: lr_tire_LOD0
-    400022: lr_tire_LOD1
-    400024: main_root
-    400026: Object002
-    400028: rear_axle_LOD0
-    400030: rear_axle_LOD1
-    400032: rear_axle_root
-    400034: rf_tire_LOD0
-    400036: rf_tire_LOD1
-    400038: right_front
-    400040: right_rear
-    400042: rr_tire_LOD0
-    400044: rr_tire_LOD1
-    400046: //RootNode
-    400048: the_blaze_low
-    400050: underbody_low
-    400052: Object003
-    400054: collider
-    400056: glass_LOD0
-    400058: the_blaze_LOD0
-    400060: the_blaze_LOD1
-    2300000: driver_LOD0
-    2300002: front_axle_LOD0
-    2300004: front_axle_LOD1
-    2300006: glass
-    2300008: interior
-    2300010: lf_tire_LOD0
-    2300012: lf_tire_LOD1
-    2300014: lr_tire_LOD0
-    2300016: lr_tire_LOD1
-    2300018: Object002
-    2300020: rear_axle_LOD0
-    2300022: rear_axle_LOD1
-    2300024: rf_tire_LOD0
-    2300026: rf_tire_LOD1
-    2300028: rr_tire_LOD0
-    2300030: rr_tire_LOD1
-    2300032: the_blaze_low
-    2300034: underbody_low
-    2300036: Object003
-    2300038: collider
-    2300040: glass_LOD0
-    2300042: the_blaze_LOD0
-    2300044: the_blaze_LOD1
-    3300000: driver_LOD0
-    3300002: front_axle_LOD0
-    3300004: front_axle_LOD1
-    3300006: glass
-    3300008: interior
-    3300010: lf_tire_LOD0
-    3300012: lf_tire_LOD1
-    3300014: lr_tire_LOD0
-    3300016: lr_tire_LOD1
-    3300018: Object002
-    3300020: rear_axle_LOD0
-    3300022: rear_axle_LOD1
-    3300024: rf_tire_LOD0
-    3300026: rf_tire_LOD1
-    3300028: rr_tire_LOD0
-    3300030: rr_tire_LOD1
-    3300032: the_blaze_low
-    3300034: underbody_low
-    3300036: Object003
-    3300038: collider
-    3300040: glass_LOD0
-    3300042: the_blaze_LOD0
-    3300044: the_blaze_LOD1
-    4300000: front_axle_LOD0
-    4300002: rf_tire_LOD0
-    4300004: rf_tire_LOD1
-    4300006: lf_tire_LOD0
-    4300008: lf_tire_LOD1
-    4300010: front_axle_LOD1
-    4300012: rear_axle_LOD0
-    4300014: rr_tire_LOD0
-    4300016: rr_tire_LOD1
-    4300018: lr_tire_LOD0
-    4300020: lr_tire_LOD1
-    4300022: rear_axle_LOD1
-    4300024: underbody_low
-    4300026: driver_LOD0
-    4300028: the_blaze_low
-    4300030: interior
-    4300032: Object002
-    4300034: glass
-    4300036: Object003
-    4300038: collider
-    4300040: the_blaze_LOD0
-    4300042: glass_LOD0
-    4300044: the_blaze_LOD1
-    20500000: //RootNode
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: driver_LOD0
+  - first:
+      1: 100002
+    second: front_axle_LOD0
+  - first:
+      1: 100004
+    second: front_axle_LOD1
+  - first:
+      1: 100006
+    second: front_axle_root
+  - first:
+      1: 100008
+    second: glass
+  - first:
+      1: 100010
+    second: interior
+  - first:
+      1: 100012
+    second: left_front
+  - first:
+      1: 100014
+    second: left_rear
+  - first:
+      1: 100016
+    second: lf_tire_LOD0
+  - first:
+      1: 100018
+    second: lf_tire_LOD1
+  - first:
+      1: 100020
+    second: lr_tire_LOD0
+  - first:
+      1: 100022
+    second: lr_tire_LOD1
+  - first:
+      1: 100024
+    second: main_root
+  - first:
+      1: 100026
+    second: Object002
+  - first:
+      1: 100028
+    second: rear_axle_LOD0
+  - first:
+      1: 100030
+    second: rear_axle_LOD1
+  - first:
+      1: 100032
+    second: rear_axle_root
+  - first:
+      1: 100034
+    second: rf_tire_LOD0
+  - first:
+      1: 100036
+    second: rf_tire_LOD1
+  - first:
+      1: 100038
+    second: right_front
+  - first:
+      1: 100040
+    second: right_rear
+  - first:
+      1: 100042
+    second: rr_tire_LOD0
+  - first:
+      1: 100044
+    second: rr_tire_LOD1
+  - first:
+      1: 100046
+    second: //RootNode
+  - first:
+      1: 100048
+    second: the_blaze_low
+  - first:
+      1: 100050
+    second: underbody_low
+  - first:
+      1: 100052
+    second: Object003
+  - first:
+      1: 100054
+    second: collider
+  - first:
+      1: 100056
+    second: glass_LOD0
+  - first:
+      1: 100058
+    second: the_blaze_LOD0
+  - first:
+      1: 100060
+    second: the_blaze_LOD1
+  - first:
+      4: 400000
+    second: driver_LOD0
+  - first:
+      4: 400002
+    second: front_axle_LOD0
+  - first:
+      4: 400004
+    second: front_axle_LOD1
+  - first:
+      4: 400006
+    second: front_axle_root
+  - first:
+      4: 400008
+    second: glass
+  - first:
+      4: 400010
+    second: interior
+  - first:
+      4: 400012
+    second: left_front
+  - first:
+      4: 400014
+    second: left_rear
+  - first:
+      4: 400016
+    second: lf_tire_LOD0
+  - first:
+      4: 400018
+    second: lf_tire_LOD1
+  - first:
+      4: 400020
+    second: lr_tire_LOD0
+  - first:
+      4: 400022
+    second: lr_tire_LOD1
+  - first:
+      4: 400024
+    second: main_root
+  - first:
+      4: 400026
+    second: Object002
+  - first:
+      4: 400028
+    second: rear_axle_LOD0
+  - first:
+      4: 400030
+    second: rear_axle_LOD1
+  - first:
+      4: 400032
+    second: rear_axle_root
+  - first:
+      4: 400034
+    second: rf_tire_LOD0
+  - first:
+      4: 400036
+    second: rf_tire_LOD1
+  - first:
+      4: 400038
+    second: right_front
+  - first:
+      4: 400040
+    second: right_rear
+  - first:
+      4: 400042
+    second: rr_tire_LOD0
+  - first:
+      4: 400044
+    second: rr_tire_LOD1
+  - first:
+      4: 400046
+    second: //RootNode
+  - first:
+      4: 400048
+    second: the_blaze_low
+  - first:
+      4: 400050
+    second: underbody_low
+  - first:
+      4: 400052
+    second: Object003
+  - first:
+      4: 400054
+    second: collider
+  - first:
+      4: 400056
+    second: glass_LOD0
+  - first:
+      4: 400058
+    second: the_blaze_LOD0
+  - first:
+      4: 400060
+    second: the_blaze_LOD1
+  - first:
+      23: 2300000
+    second: driver_LOD0
+  - first:
+      23: 2300002
+    second: front_axle_LOD0
+  - first:
+      23: 2300004
+    second: front_axle_LOD1
+  - first:
+      23: 2300006
+    second: glass
+  - first:
+      23: 2300008
+    second: interior
+  - first:
+      23: 2300010
+    second: lf_tire_LOD0
+  - first:
+      23: 2300012
+    second: lf_tire_LOD1
+  - first:
+      23: 2300014
+    second: lr_tire_LOD0
+  - first:
+      23: 2300016
+    second: lr_tire_LOD1
+  - first:
+      23: 2300018
+    second: Object002
+  - first:
+      23: 2300020
+    second: rear_axle_LOD0
+  - first:
+      23: 2300022
+    second: rear_axle_LOD1
+  - first:
+      23: 2300024
+    second: rf_tire_LOD0
+  - first:
+      23: 2300026
+    second: rf_tire_LOD1
+  - first:
+      23: 2300028
+    second: rr_tire_LOD0
+  - first:
+      23: 2300030
+    second: rr_tire_LOD1
+  - first:
+      23: 2300032
+    second: the_blaze_low
+  - first:
+      23: 2300034
+    second: underbody_low
+  - first:
+      23: 2300036
+    second: Object003
+  - first:
+      23: 2300038
+    second: collider
+  - first:
+      23: 2300040
+    second: glass_LOD0
+  - first:
+      23: 2300042
+    second: the_blaze_LOD0
+  - first:
+      23: 2300044
+    second: the_blaze_LOD1
+  - first:
+      33: 3300000
+    second: driver_LOD0
+  - first:
+      33: 3300002
+    second: front_axle_LOD0
+  - first:
+      33: 3300004
+    second: front_axle_LOD1
+  - first:
+      33: 3300006
+    second: glass
+  - first:
+      33: 3300008
+    second: interior
+  - first:
+      33: 3300010
+    second: lf_tire_LOD0
+  - first:
+      33: 3300012
+    second: lf_tire_LOD1
+  - first:
+      33: 3300014
+    second: lr_tire_LOD0
+  - first:
+      33: 3300016
+    second: lr_tire_LOD1
+  - first:
+      33: 3300018
+    second: Object002
+  - first:
+      33: 3300020
+    second: rear_axle_LOD0
+  - first:
+      33: 3300022
+    second: rear_axle_LOD1
+  - first:
+      33: 3300024
+    second: rf_tire_LOD0
+  - first:
+      33: 3300026
+    second: rf_tire_LOD1
+  - first:
+      33: 3300028
+    second: rr_tire_LOD0
+  - first:
+      33: 3300030
+    second: rr_tire_LOD1
+  - first:
+      33: 3300032
+    second: the_blaze_low
+  - first:
+      33: 3300034
+    second: underbody_low
+  - first:
+      33: 3300036
+    second: Object003
+  - first:
+      33: 3300038
+    second: collider
+  - first:
+      33: 3300040
+    second: glass_LOD0
+  - first:
+      33: 3300042
+    second: the_blaze_LOD0
+  - first:
+      33: 3300044
+    second: the_blaze_LOD1
+  - first:
+      43: 4300000
+    second: front_axle_LOD0
+  - first:
+      43: 4300002
+    second: rf_tire_LOD0
+  - first:
+      43: 4300004
+    second: rf_tire_LOD1
+  - first:
+      43: 4300006
+    second: lf_tire_LOD0
+  - first:
+      43: 4300008
+    second: lf_tire_LOD1
+  - first:
+      43: 4300010
+    second: front_axle_LOD1
+  - first:
+      43: 4300012
+    second: rear_axle_LOD0
+  - first:
+      43: 4300014
+    second: rr_tire_LOD0
+  - first:
+      43: 4300016
+    second: rr_tire_LOD1
+  - first:
+      43: 4300018
+    second: lr_tire_LOD0
+  - first:
+      43: 4300020
+    second: lr_tire_LOD1
+  - first:
+      43: 4300022
+    second: rear_axle_LOD1
+  - first:
+      43: 4300024
+    second: underbody_low
+  - first:
+      43: 4300026
+    second: driver_LOD0
+  - first:
+      43: 4300028
+    second: the_blaze_low
+  - first:
+      43: 4300030
+    second: interior
+  - first:
+      43: 4300032
+    second: Object002
+  - first:
+      43: 4300034
+    second: glass
+  - first:
+      43: 4300036
+    second: Object003
+  - first:
+      43: 4300038
+    second: collider
+  - first:
+      43: 4300040
+    second: the_blaze_LOD0
+  - first:
+      43: 4300042
+    second: glass_LOD0
+  - first:
+      43: 4300044
+    second: the_blaze_LOD1
+  - first:
+      205: 20500000
+    second: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blaze
+    second: {fileID: 2100000, guid: aac1cdf259dcd2141b9e9f2aaf664fa0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: driver
+    second: {fileID: 2100000, guid: 8ec37558677232b448ceb22f4ca9838b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 929d148fb022fa14fb64757931bb1da5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tire
+    second: {fileID: 2100000, guid: 7d81b58c68c9e764f8332138ff53bd30, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages:
     - 0.25
     - 0.01
-    globalScale: 1
+    globalScale: 0.78
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -182,10 +482,14 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -195,14 +499,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.78
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

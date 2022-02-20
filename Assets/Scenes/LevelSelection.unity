@@ -2635,8 +2635,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 801729221}
+        m_MethodName: UnlockAllLevels_InApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

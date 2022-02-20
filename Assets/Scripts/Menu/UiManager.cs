@@ -14,6 +14,7 @@ public class UiManager : MonoBehaviour
     public Popup LosePanel_bg, LosePanel_bg1, LosePanel_footer;
     public Popup GamePLay_Header,GamePlay_Footer;
     public GameObject Loading_Obj;
+    public GameObject WrongWayPanel;
     [Header("Text UI")]
     public Text Timertxt;
     Animator _timetxtAnim;
@@ -141,5 +142,9 @@ public class UiManager : MonoBehaviour
     public void CoinsAnimation()
     {
         CoinsAnim.Play("COinsAnim");
+    }
+    public void WrongWayUi(bool b)
+    {
+        WrongWayPanel.SetActive(b);
     }
 }

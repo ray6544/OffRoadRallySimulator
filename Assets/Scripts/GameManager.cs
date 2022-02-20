@@ -17,11 +17,16 @@ public class GameManager : MonoBehaviour
     public RCC_Camera _camera;
     [Header("Vehicles")]
     public GameObject[] _Vehicles;
+    GameObject[] DirectionalObjs;
+    public List<Transform> DirectionalPoints;
+    public GameObject MinCoins, MaxCoins;
     int _levelRewards;
     int _totalReward;
     bool isFailed, isCompleted;
     public AudioSource _audiosource;
     public AudioClip click,startSoun;
+    Vector3 forward;
+    Vector3 toOther;
     private void Awake()
     {
         if (instance == null)
@@ -29,6 +34,11 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        DirectionalObjs = GameObject.FindGameObjectsWithTag("Point");
+        for (int i = 0; i < DirectionalObjs.Length; i++)
+        {
+            DirectionalPoints.Add(DirectionalObjs[i].transform);
+        }
         CheckPoints = 0;
         MaxCheckPoints = 0;
         GameObject[] Obj = GameObject.FindGameObjectsWithTag("CheckPoint");
@@ -36,7 +46,17 @@ public class GameManager : MonoBehaviour
         UiManager.instance.CheckPointsUI(CheckPoints.ToString() + "/" + MaxCheckPoints.ToString());
         _time = timeRemaining;
         UiManager.instance.TimerUI(_time);
-        UiManager.instance.CoinsUI(Coins.ToString()); ;
+        UiManager.instance.CoinsUI(Coins.ToString());
+        if (PlayerPrefs.GetInt("CoinsRush") == 0)
+        {
+            MinCoins.SetActive(true);
+            MaxCoins.SetActive(false);
+        }
+        else if (PlayerPrefs.GetInt("CoinsRush") == 1)
+        {
+            MinCoins.SetActive(false);
+            MaxCoins.SetActive(true);
+        }
         StartCoroutine(Count());
         Init();
     }
@@ -49,21 +69,25 @@ public class GameManager : MonoBehaviour
                 _Vehicles[i].SetActive(true);
                 _properties = _Vehicles[i].GetComponent<Vehicle_Properties>();
                 _camera.playerCar = _Vehicles[i].GetComponent<RCC_CarControllerV3>();
+                _properties.Rigid.constraints = RigidbodyConstraints.FreezePositionZ;
             }
             else
             {
                 _Vehicles[i].SetActive(false);
             }
         }
+        _properties.LightOn();
         _properties.Speed(DataManager.instance.GetSpeed());
         _properties.Braking(DataManager.instance.GetBraking());
         _properties.Handling(DataManager.instance.GetHandling() / 2);
         _properties.Accelration(DataManager.instance.GetAccel());
+        SoundManager.instance.AudioListnereMute(SoundManager.instance.GetSoundFx());
     }
     // Update is called once per frame
     void Update()
     {
         Timer();
+        CalCulateDirection();
     }
     void Timer()
     {
@@ -122,6 +146,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         StartGame = true;
         timerIsRunning = true;
+        _properties.Rigid.constraints = RigidbodyConstraints.None;
         UiManager.instance.GamePlay_ui();
         
     }
@@ -135,6 +160,24 @@ public class GameManager : MonoBehaviour
             timerIsRunning = false;
         if (_properties.Rigid.isKinematic == false)
             _properties.Rigid.isKinematic = true;
+    }
+    void CalCulateDirection()
+    {
+        if (DirectionalPoints.Count != 0)
+        {
+            forward = _properties.gameObject.transform.TransformDirection(Vector3.forward);
+            toOther = DirectionalPoints[0].transform.position - _properties.gameObject.transform.position;
+               
+
+            if (Vector3.Dot(forward, toOther) < 0)
+            {
+                UiManager.instance.WrongWayUi(true);
+            }
+            else
+            {
+                UiManager.instance.WrongWayUi(false);
+            }
+        }
     }
     public void Restart()
     {
@@ -190,8 +233,12 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Levels" + DataManager.instance.GetLevelNumber(),1);
         }
+        if (DataManager.instance.GetLevelNumber() > 9)
+        {
+            DataManager.instance.SetLevelNumber(0);
+        }
         DataManager.instance.SetLevelNumber(DataManager.instance.GetLevelNumber() + 1);
-        UiManager.instance.LoadingUi("Level" + DataManager.instance.GetLevelNumber());
+        UiManager.instance.LoadingUi("Level"+ DataManager.instance.GetLevelNumber());
     }
     public void LevelFailed()
     {
@@ -261,9 +308,12 @@ public class GameManager : MonoBehaviour
     }
     public void Audio(AudioClip _audioClip)
     {
-        if (SoundManager.instance.GetSoundFx() == 0)
-        {
+        
             _audiosource.PlayOneShot(_audioClip);
-        }
+       
+    }
+    public void DeleteDirectionalPoint(GameObject Obj)
+    {
+        DirectionalPoints.Remove(Obj.transform);
     }
 }

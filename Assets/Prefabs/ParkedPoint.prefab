@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 897259260508305949}
   - component: {fileID: 9154700953295137386}
   - component: {fileID: 3867487144651222323}
-  - component: {fileID: 7492926226560624579}
+  - component: {fileID: 937595573007627227}
   m_Layer: 0
   m_Name: ParkedPoint
   m_TagString: Untagged
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4787349859216840310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -111,7 +111,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7492926226560624579
+--- !u!114 &937595573007627227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4787349859216840310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e2ae11eaad9846aeaafd63e6e1d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1130395fce0070546ae2e646c2ab79c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
+  _manager: {fileID: 0}

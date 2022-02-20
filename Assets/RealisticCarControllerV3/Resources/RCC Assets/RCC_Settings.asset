@@ -282,11 +282,11 @@ MonoBehaviour:
   uiType: 0
   useTelemetry: 0
   mobileController: 0
-  UIButtonSensitivity: 3
-  UIButtonGravity: 5
+  UIButtonSensitivity: 5
+  UIButtonGravity: 8
   gyroSensitivity: 2
   useLightsAsVertexLights: 1
-  useLightProjectorForLightingEffect: 0
+  useLightProjectorForLightingEffect: 1
   setTagsAndLayers: 1
   RCCLayer: RCC
   RCCTag: Player
@@ -298,7 +298,7 @@ MonoBehaviour:
   projector: {fileID: 102982, guid: 7f7b6e33e52b82e43a57b7cc85ed5cf9, type: 3}
   projectorIgnoreLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   headLights: {fileID: 146832, guid: 660ec4b1fd79fa74096f0ab9e6cbd2ca, type: 3}
   brakeLights: {fileID: 136378, guid: 40648ef4ebef26d4c9cc0663c2f08e5e, type: 3}
   reverseLights: {fileID: 197258, guid: 188c477ab444228409c4a246c02a86bd, type: 3}
