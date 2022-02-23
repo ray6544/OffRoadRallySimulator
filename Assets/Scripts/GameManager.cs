@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public AudioClip click,startSoun;
     Vector3 forward;
     Vector3 toOther;
+    bool RewardDone;
     private void Awake()
     {
         if (instance == null)
@@ -108,7 +109,14 @@ public class GameManager : MonoBehaviour
                     timerIsRunning = false;
                     _time = 0;
                     UiManager.instance.TimerUI(_time);
-                    LevelFailed();
+                    if (DataManager.instance.GetIsCoinsRush() == false)
+                    {
+                        LevelFailed();
+                    }
+                    else
+                    {
+                        LevelComplete();
+                    }
 
                 }
             }
@@ -182,11 +190,13 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Audio(click);
+        Interstitial();
         UiManager.instance.LoadingUi(SceneManager.GetActiveScene().name);
     }
     public void Home()
     {
         Audio(click);
+        Interstitial();
         UiManager.instance.LoadingUi("MainMenu");
     }
     public void Resume_pause()
@@ -201,7 +211,23 @@ public class GameManager : MonoBehaviour
     }
     public void Resume_lose()
     {
+        
         Audio(click);
+
+        
+            try
+            {
+                AdManager.Instance.DiplayRewardVideo(4);
+               
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+        
+    }
+    void ResumeLose_result()
+    {
         if (isFailed == true)
             isFailed = false;
         timeRemaining = 50;
@@ -215,30 +241,54 @@ public class GameManager : MonoBehaviour
             _properties.Rigid.isKinematic = false;
         _camera.gameObject.SetActive(true);
         _properties.RotationCamera.SetActive(false);
-        UiManager.instance.LoseGame_Ui(); 
+        UiManager.instance.LoseGame_Ui();
         UiManager.instance.GamePlay_ui();
-        
     }
     public void Watch_Rewarded()
     {
-        Audio(click);
+        if (RewardDone == false)
+        {
+            Audio(click);
+            
+                try
+                {
+                    AdManager.Instance.DiplayRewardVideo(5);
+
+                }
+                catch
+                {
+                    Debug.Log("dd");
+                }
+            
+        }
+    }
+    void RewardedResult()
+    {
+        RewardDone = true;
         _totalReward = _totalReward * 2;
         UiManager.instance.TotalRewardUi(_totalReward.ToString());
     }
     public void NextRace()
     {
-
+        Interstitial();
         Audio(click);
-        if (PlayerPrefs.GetInt("Levels" + DataManager.instance.GetLevelNumber()) == 0)
+        if (DataManager.instance.GetIsCoinsRush() == false)
         {
-            PlayerPrefs.SetInt("Levels" + DataManager.instance.GetLevelNumber(),1);
+            if (PlayerPrefs.GetInt("Levels" + DataManager.instance.GetLevelNumber()) == 0)
+            {
+                PlayerPrefs.SetInt("Levels" + DataManager.instance.GetLevelNumber(), 1);
+            }
+            if (DataManager.instance.GetLevelNumber() > 9)
+            {
+                DataManager.instance.SetLevelNumber(0);
+            }
+            DataManager.instance.SetLevelNumber(DataManager.instance.GetLevelNumber() + 1);
+            UiManager.instance.LoadingUi("Level" + DataManager.instance.GetLevelNumber());
         }
-        if (DataManager.instance.GetLevelNumber() > 9)
+        else if (DataManager.instance.GetIsCoinsRush() == true)
         {
-            DataManager.instance.SetLevelNumber(0);
+            UiManager.instance.LoadingUi("MainMenu");
         }
-        DataManager.instance.SetLevelNumber(DataManager.instance.GetLevelNumber() + 1);
-        UiManager.instance.LoadingUi("Level"+ DataManager.instance.GetLevelNumber());
     }
     public void LevelFailed()
     {
@@ -289,10 +339,19 @@ public class GameManager : MonoBehaviour
         _properties.RotationCamera.SetActive(true);
         _camera.gameObject.SetActive(false);
         yield return new WaitForSeconds(2.0f);
-        _levelRewards = (int)Random.Range(50 , 100);
-        _totalReward = _levelRewards + Coins;
-        UiManager.instance.WonGame_Ui(Coins,_time,_totalReward);
-        DataManager.instance.SetCoins(DataManager.instance.GetCoins() + _totalReward);
+        if (DataManager.instance.GetIsCoinsRush() == false)
+        {
+            _levelRewards = (int)Random.Range(50, 100);
+            _totalReward = _levelRewards + Coins;
+            UiManager.instance.WonGame_Ui(Coins, _time, _totalReward);
+            DataManager.instance.SetCoins(DataManager.instance.GetCoins() + _totalReward);
+        }
+        else if (DataManager.instance.GetIsCoinsRush() == true)
+        {
+            UiManager.instance.WonGameCoinsRush_ui(Coins);
+            DataManager.instance.SetCoins(DataManager.instance.GetCoins() + Coins);
+        }
+           
     }
     //----------------------Respawn------------------------
     public void RespawnSavePos(Transform trans)
@@ -315,5 +374,29 @@ public class GameManager : MonoBehaviour
     public void DeleteDirectionalPoint(GameObject Obj)
     {
         DirectionalPoints.Remove(Obj.transform);
+    }
+    public void Interstitial()
+    {
+        
+            try
+            {
+                AdManager.Instance.LoadIntestellarAds();
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+        
+    }
+    
+    private void OnEnable()
+    {
+        AdManager.Rewarededlos += ResumeLose_result;
+        AdManager.DoubleReward += RewardedResult;
+    }
+    private void OnDisable()
+    {
+        AdManager.Rewarededlos -= ResumeLose_result;
+        AdManager.DoubleReward -= RewardedResult;
     }
 }

@@ -104,6 +104,21 @@ public class UiManager : MonoBehaviour
         LosePanel_bg1.Toggle();
         LosePanel_footer.Toggle();
     }
+    public void WonGameCoinsRush_ui(int CoinsCollected)
+    {
+        WonPanel_CoinsCollectedtxt.text = CoinsCollected.ToString();
+        StartCoroutine(WOnpanelCoinsRush_(0.8f));
+    }
+    IEnumerator WOnpanelCoinsRush_(float _gapTime)
+    {
+        WonePanel_bg.Toggle();
+        yield return new WaitForSeconds(_gapTime);
+        WonePanel_Header.Toggle();
+        yield return new WaitForSeconds(_gapTime);
+        WonePanel_CoinsCollected.Toggle();
+        yield return new WaitForSeconds(_gapTime);
+        WonePanel_Footer1.Toggle();
+    }
     public void WonGame_Ui(int CoinsCollected, float TimeLeft, int Reward)
     {
         WonPanel_CoinsCollectedtxt.text = CoinsCollected.ToString();

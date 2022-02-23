@@ -12,6 +12,8 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     public int Coins;
     public int NumberOfVehicle;
+    [SerializeField]
+    public bool IsCoinsRush;
     [Header("Vehicle Properties")]
     public int[] Accel;
     public int[] speed;
@@ -38,7 +40,7 @@ public class DataManager : MonoBehaviour
     {
         CarId = PlayerPrefs.GetInt("CarId");
         LevelNumber = PlayerPrefs.GetInt("LevelNumber");
-        Coins = PlayerPrefs.GetInt("Coins", 0);
+        Coins = PlayerPrefs.GetInt("Coins",50);
         for (int i = 0; i < NumberOfVehicle; i++)
         {
             Accel[i] = PlayerPrefs.GetInt("Accel"+i);
@@ -46,6 +48,7 @@ public class DataManager : MonoBehaviour
             Braking[i] = PlayerPrefs.GetInt("Braking" + i);
             Handling[i] = PlayerPrefs.GetInt("Handling" + i);
         }
+        IsCoinsRush = false;
     }
     //*******************************Setters**************************************
 
@@ -84,6 +87,10 @@ public class DataManager : MonoBehaviour
         Handling[CarId] = i;
         PlayerPrefs.SetInt("Handling", Handling[CarId]);
     }
+    public void SetIsCoinsRush(bool b)
+    {
+        IsCoinsRush = b;
+    }
     //*******************************Getters**************************************
     public int GetCarId()
     {
@@ -112,5 +119,9 @@ public class DataManager : MonoBehaviour
     public int GetHandling()
     {
         return Handling[CarId];
+    }
+    public bool GetIsCoinsRush()
+    {
+        return IsCoinsRush;
     }
 }

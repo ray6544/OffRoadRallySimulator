@@ -53,6 +53,7 @@ public class MainMenuController : MonoBehaviour
     public enum Properties { accel = 0, speed = 1, braking = 2, Handling = 3 };
     public Properties _properties;
     int PropertiesIndex;
+    int _addCoins;
     [Header("Sound")]
     public AudioSource _audiosource;
     public AudioClip Click, SelectionClick, Alert, congrets;
@@ -95,6 +96,9 @@ public class MainMenuController : MonoBehaviour
         Vehicle(DataManager.instance.GetCarId());
         Specification(DataManager.instance.GetCarId());
         SetPlayerNameTag(DataManager.instance.GetCarId());
+        if (DataManager.instance.GetIsCoinsRush() == true)
+            DataManager.instance.SetIsCoinsRush(false);
+       
     }
     public void InitializeVehicles()
     {
@@ -124,7 +128,18 @@ public class MainMenuController : MonoBehaviour
     }
     public void SceneChange(string scenename)
     {
-        Audio(Click);
+        
+            AdManager.Instance.UndisplayBanner();
+            Audio(Click);
+            SoundManager.instance.IsLoading(true);
+            Loading.GetComponent<Splash>().LoadingSceneName = scenename;
+            Loading.SetActive(true);
+            Interstitial();
+        
+    }
+    public void SceneChange_(string scenename)
+    {
+        AdManager.Instance.UndisplayBanner();
         SoundManager.instance.IsLoading(true);
         Loading.GetComponent<Splash>().LoadingSceneName = scenename;
         Loading.SetActive(true);
@@ -132,6 +147,7 @@ public class MainMenuController : MonoBehaviour
     public void AdRemove()
     {
         Audio(Click);
+        InAppPurchase.instance.BuyNonConsumable_removeads();
     }
     public void PrivacyPolicy()
     {
@@ -148,6 +164,9 @@ public class MainMenuController : MonoBehaviour
                 {
                     MainMenu_header.Show();
                     MainMenu_footer.Show();
+                    
+                        AdManager.Instance.DisplayBanner();
+                   
                 }
                 if (Grage_header.isVisible)
                 {
@@ -171,6 +190,7 @@ public class MainMenuController : MonoBehaviour
                 }
                 if (!Grage_header.isVisible)
                 {
+                    
                     Grage_header.Show();
                     Grage_footer.Show();
                     Grage_left.Show();
@@ -347,13 +367,28 @@ public class MainMenuController : MonoBehaviour
         Audio(Click);
         if (InternetConnectivity())
         {
-            DataManager.instance.SetCoins(DataManager.instance.GetCoins() + coins);
-            CoinShow(DataManager.instance.GetCoins());
+           
+                try
+                {
+                    AdManager.Instance.DiplayRewardVideo(2);
+                    _addCoins = coins;
+                }
+                catch
+                {
+                    Debug.Log("dd");
+                }
+           
+
         }
         else
         {
             ConnectivityPanel.Toggle();
         }
+    }
+    void AddCoinsResult()
+    {
+        DataManager.instance.SetCoins(DataManager.instance.GetCoins() + _addCoins);
+        CoinShow(DataManager.instance.GetCoins());
     }
     private IEnumerator LerpSlider(Slider customSlider,int finalvalue)
     {
@@ -608,31 +643,74 @@ public class MainMenuController : MonoBehaviour
     }
     void SelectionOfCoinsRush()
     {
-        if (!PlayerPrefs.HasKey("CoinsRush"))
+        Audio(Click);
+        if (InternetConnectivity())
         {
-            PlayerPrefs.GetInt("CoinsRush");
+           
+                try
+                {
+                    AdManager.Instance.DiplayRewardVideo(1); 
+                }
+                catch
+                {
+                    Debug.Log("dd");
+                }
+            
+
         }
-        if (PlayerPrefs.GetInt("CoinsRush") == 0)
+        else
         {
-            PlayerPrefs.SetInt("CoinsRush", 1);
+            ConnectivityPanel.Toggle();
         }
+
+        SelectionOfCoinsRush_result();
+    }
+    void SelectionOfCoinsRush_result()
+    {
+        
+        if (DataManager.instance.GetIsCoinsRush() == false)
+        {
+            DataManager.instance.SetIsCoinsRush(true);
+        }
+        SceneChange_("CoinsRush");
     }
     private void OnEnable()
     {
         InAppPurchase._unlockAllVehicles += InitializeVehicles_;
+      //  AdManager.CoinsRush += SelectionOfCoinsRush_result;
+        AdManager.coinCash_grage += AddCoinsResult;
     }
     private void OnDisable()
     {
         InAppPurchase._unlockAllVehicles -= InitializeVehicles_;
+       // AdManager.CoinsRush -= SelectionOfCoinsRush_result;
+        AdManager.coinCash_grage -= AddCoinsResult;
     }
     public void UunlockAllVehicles_InApp()
     {
-        InAppPurchase.instance.UnlockAllVehiclesEvent();
+        InAppPurchase.instance.BuyNonConsumable_unlockallvehicles();
+       
     }
     public void RemoveAds_InApp()
     {
-        InAppPurchase.instance.RemoveAdsEvent();
+        InAppPurchase.instance.BuyNonConsumable_removeads();
     }
+    //--------------Ads---------------
+    public void Interstitial()
+    {
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            try
+            {
+                AdManager.Instance.LoadIntestellarAds();
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+        }
+    }
+  
 }
 [System.Serializable]
 public class VehicleProperties

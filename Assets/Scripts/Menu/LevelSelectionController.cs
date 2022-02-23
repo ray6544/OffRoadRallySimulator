@@ -19,6 +19,8 @@ public class LevelSelectionController : MonoBehaviour
     public float currentPos = 0.0f;
     public float[] positions = { 0.0f, 0.25171f, 0.50126f, 0.74863f, 1.0f };
     Dictionary<int, int> levelPositions;
+    bool IsLocked = false;
+    int _AdCoins;
     [Header("Sound")]
     public AudioSource _audiosource;
     public AudioClip Click, SelectionClick, Alert, congrets;
@@ -28,6 +30,7 @@ public class LevelSelectionController : MonoBehaviour
     }
     void Init()
     {
+        AdManager.Instance.DisplayBanner();
         SoundManager.instance.GameMusic();
         SoundManager.instance.AudioListnereMute(SoundManager.instance.GetSoundFx());
         levelPositions = new Dictionary<int, int>();
@@ -93,6 +96,14 @@ public class LevelSelectionController : MonoBehaviour
 
             currentPos = positions[pos];
             scrollbar.GetComponent<Scrollbar>().value = currentPos;
+            if (PlayerPrefs.GetInt("Levels" + (currentLevel-1)) == 0)
+            {
+                IsLocked = true;
+            }
+            else if (PlayerPrefs.GetInt("Levels" + (currentLevel - 1)) == 1)
+            {
+                IsLocked = false;
+            }
             DataManager.instance.SetLevelNumber(currentLevel);
         }
        
@@ -119,6 +130,14 @@ public class LevelSelectionController : MonoBehaviour
                 selectors[pos].transform.GetChild(0).gameObject.SetActive(true);
 
                 scrollbar.GetComponent<Scrollbar>().value = currentPos;
+            }
+            if (PlayerPrefs.GetInt("Levels" + (currentLevel - 1)) == 0)
+            {
+                IsLocked = true;
+            }
+            else if (PlayerPrefs.GetInt("Levels" + (currentLevel - 1)) == 1)
+            {
+                IsLocked = false;
             }
             DataManager.instance.SetLevelNumber(currentLevel);
         }
@@ -153,13 +172,29 @@ public class LevelSelectionController : MonoBehaviour
         Audio(Click);
         if (InternetConnectivity())
         {
-            DataManager.instance.SetCoins(DataManager.instance.GetCoins() + coins);
-            CoinsShow(DataManager.instance.GetCoins());
+           
+                try
+                {
+                    AdManager.Instance.DiplayRewardVideo(3);
+                    _AdCoins = coins;
+                }
+                catch
+                {
+                    Debug.Log("dd");
+                }
+            
+
+           
         }
         else
         {
             ConnectInernetPanel.Toggle();
         }
+    }
+    void AddCoinsResult()
+    {
+        DataManager.instance.SetCoins(DataManager.instance.GetCoins() + _AdCoins);
+        CoinsShow(DataManager.instance.GetCoins());
     }
     public bool InternetConnectivity()
     {
@@ -174,13 +209,18 @@ public class LevelSelectionController : MonoBehaviour
     }
     public void NextLevel()
     {
-        SoundManager.instance.IsLoading(true);
-        Debug.Log(DataManager.instance.GetLevelNumber());
-        Loading_panel.GetComponent<Splash>().LoadingSceneName = "Level"  + DataManager.instance.GetLevelNumber();
-        Loading_panel.SetActive(true);
+        if (IsLocked == false)
+        {
+            AdManager.Instance.UndisplayBanner();
+            SoundManager.instance.IsLoading(true);
+            Debug.Log(DataManager.instance.GetLevelNumber());
+            Loading_panel.GetComponent<Splash>().LoadingSceneName = "Level" + DataManager.instance.GetLevelNumber();
+            Loading_panel.SetActive(true);
+        }
     }
     public void BackLevel()
     {
+        AdManager.Instance.UndisplayBanner();
         SoundManager.instance.IsLoading(true);
         Loading_panel.GetComponent<Splash>().LoadingSceneName = "MainMenu";
         Loading_panel.SetActive(true);
@@ -193,14 +233,30 @@ public class LevelSelectionController : MonoBehaviour
     private void OnEnable()
     {
         InAppPurchase._unlockAllLevels += InitializeLevels;
+        AdManager.coinCash_lvlSel += AddCoinsResult;
     }
     private void OnDisable()
     {
         InAppPurchase._unlockAllLevels -= InitializeLevels;
+        AdManager.coinCash_lvlSel -= AddCoinsResult;
     }
     public void UnlockAllLevels_InApp()
     {
-        InAppPurchase.instance.UnlockAllLevelsEvent();
+        InAppPurchase.instance.BuyNonConsumable_unlockalllevels();
     }
+    public void Interstitial()
+    {
+        
+            try
+            {
+                AdManager.Instance.LoadIntestellarAds();
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+        
+    }
+   
 }
 

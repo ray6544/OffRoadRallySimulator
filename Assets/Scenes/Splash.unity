@@ -303,6 +303,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1059735207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059735209}
+  - component: {fileID: 1059735208}
+  m_Layer: 0
+  m_Name: AdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1059735208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059735207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c9b9f95ee6d5d4ba011d9b69e03616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publishingApp: 0
+  testRewardId: ca-app-pub-3940256099942544/5224354917
+  testIntestellarId: ca-app-pub-3940256099942544/1033173712
+  testBannerId: ca-app-pub-3940256099942544/6300978111
+  RewardId: 
+  InterstitialId: 
+  BannerId: 
+  GameId: 4623967
+  GameMode: 1
+  Interstitial: Interstitial_Android
+  Interstitialvideo: Rewarded_Android
+  ClicksRateInGame: 0
+--- !u!4 &1059735209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059735207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.468647, y: -4.33, z: -90.45795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1108944001
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9603a7537ed9eb4bac9605f2c7c12c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumberOfLevels: 10
+  NumberOfVehicles: 5
 --- !u!4 &1108944003
 Transform:
   m_ObjectHideFlags: 0
