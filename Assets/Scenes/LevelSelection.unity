@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999946, b: 0.99999946, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6590,21 +6590,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'It is a long established fact that a reader will be distracted by the
-    readable content of a page when looking at its layout. The point of using Lorem
-    Ipsum is that it has a more-or-less normal distribution of letters, as opposed
-    to using ''Content here, content here'', making it look like readable English.
-    Many desktop publishing packages and web page editors now use Lorem Ipsum as
-    their default model text, and a search for ''lorem ipsum'' will uncover many
-    web sites still in their infancy. Various versions have evolved over the years,
-    sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-
-'
+  m_text: Drive through the jungle passing checkpoints. Your goal is to reach the
+    finish line before time runs out.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c702606fb9503cd4b9bd9299eb93dd09, type: 2}
-  m_sharedMaterial: {fileID: 7341319235455296502, guid: c702606fb9503cd4b9bd9299eb93dd09,
+  m_fontAsset: {fileID: 11400000, guid: 956f7a599f8467c40ab26ad50d6475eb, type: 2}
+  m_sharedMaterial: {fileID: -3948173823142840059, guid: 956f7a599f8467c40ab26ad50d6475eb,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6629,13 +6619,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.55
+  m_fontSize: 42
   m_fontSizeBase: 42
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 12
   m_fontSizeMax: 22
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535

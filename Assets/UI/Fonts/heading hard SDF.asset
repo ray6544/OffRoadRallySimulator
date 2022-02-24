@@ -38,7 +38,7 @@ Material:
     - _OutlineTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 22.25, y: 0}
     m_Floats:
     - _Ambient: 0.5
     - _Bevel: 0.5
@@ -70,7 +70,7 @@ Material:
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
     - _ScaleRatioB: 0.6770833
-    - _ScaleRatioC: 0.6770833
+    - _ScaleRatioC: 0.42054865
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -83,10 +83,10 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 512
     - _TextureWidth: 512
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: -0.57
-    - _UnderlaySoftness: 0.33
+    - _UnderlayDilate: -0.06
+    - _UnderlayOffsetX: -0.93
+    - _UnderlayOffsetY: -1
+    - _UnderlaySoftness: 0.67
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75
