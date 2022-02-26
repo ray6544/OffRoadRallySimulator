@@ -18627,10 +18627,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5566861897865239567, guid: 55295cbc3f93c2b46bb262b5671d738a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 93.101685
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566861897865239567, guid: 55295cbc3f93c2b46bb262b5671d738a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 5566861898188684325, guid: 55295cbc3f93c2b46bb262b5671d738a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 23.300293
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 5566861898405264016, guid: 55295cbc3f93c2b46bb262b5671d738a,
         type: 3}
@@ -18685,5 +18695,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0aca5e73cec01429cc7806a8de60e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingSceneName: 
+  LoadingSceneName: LevelSelection
   LoadingSlider: {fileID: 5566861898436808875}
