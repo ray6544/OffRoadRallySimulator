@@ -172,19 +172,19 @@ public class LevelSelectionController : MonoBehaviour
         Audio(Click);
         if (InternetConnectivity())
         {
-           
-                try
-                {
-                    AdManager.Instance.DiplayRewardVideo(3);
-                    _AdCoins = coins;
-                }
-                catch
-                {
-                    Debug.Log("dd");
-                }
-            
 
-           
+            try
+            {
+                AdManager.Instance.DiplayRewardVideo(3);
+                _AdCoins = coins;
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+
+
+
         }
         else
         {
@@ -246,16 +246,16 @@ public class LevelSelectionController : MonoBehaviour
     }
     public void Interstitial()
     {
-        
-            try
-            {
-                AdManager.Instance.LoadIntestellarAds();
-            }
-            catch
-            {
-                Debug.Log("dd");
-            }
-        
+
+        try
+        {
+            AdManager.Instance.LoadIntestellarAds();
+        }
+        catch
+        {
+            Debug.Log("dd");
+        }
+
     }
    
 }

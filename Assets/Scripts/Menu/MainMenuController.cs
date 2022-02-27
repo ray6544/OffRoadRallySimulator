@@ -367,17 +367,17 @@ public class MainMenuController : MonoBehaviour
         Audio(Click);
         if (InternetConnectivity())
         {
-           
-                try
-                {
-                    AdManager.Instance.DiplayRewardVideo(2);
-                    _addCoins = coins;
-                }
-                catch
-                {
-                    Debug.Log("dd");
-                }
-           
+
+            try
+            {
+                AdManager.Instance.DiplayRewardVideo(2);
+                _addCoins = coins;
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+
 
         }
         else
@@ -646,16 +646,16 @@ public class MainMenuController : MonoBehaviour
         Audio(Click);
         if (InternetConnectivity())
         {
-           
-                try
-                {
-                    AdManager.Instance.DiplayRewardVideo(1); 
-                }
-                catch
-                {
-                    Debug.Log("dd");
-                }
-            
+
+            try
+            {
+                AdManager.Instance.DiplayRewardVideo(1);
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+
 
         }
         else

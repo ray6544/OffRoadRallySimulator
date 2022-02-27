@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("Vehicles")]
     public GameObject[] _Vehicles;
     GameObject[] DirectionalObjs;
-    public List<Transform> DirectionalPoints;
+    public List<Transform> CheckPointsList;
     public GameObject MinCoins, MaxCoins;
     int _levelRewards;
     int _totalReward;
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     Vector3 forward;
     Vector3 toOther;
     bool RewardDone;
+    public float dist;
     private void Awake()
     {
         if (instance == null)
@@ -35,15 +36,15 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        DirectionalObjs = GameObject.FindGameObjectsWithTag("Point");
-        for (int i = 0; i < DirectionalObjs.Length; i++)
-        {
-            DirectionalPoints.Add(DirectionalObjs[i].transform);
-        }
+        
         CheckPoints = 0;
         MaxCheckPoints = 0;
         GameObject[] Obj = GameObject.FindGameObjectsWithTag("CheckPoint");
         MaxCheckPoints = Obj.Length;
+        for (int i = 0; i < Obj.Length; i++)
+        {
+            CheckPointsList.Add(Obj[i].transform);
+        }
         UiManager.instance.CheckPointsUI(CheckPoints.ToString() + "/" + MaxCheckPoints.ToString());
         _time = timeRemaining;
         UiManager.instance.TimerUI(_time);
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Timer();
-        CalCulateDirection();
+        CheckDirection();
     }
     void Timer()
     {
@@ -96,10 +97,8 @@ public class GameManager : MonoBehaviour
         {
             if (timerIsRunning)
             {
-                Debug.Log(_time);
                 if (_time > 0)
                 {
-                    Debug.Log(_time);
                     _time -= Time.deltaTime;
                     UiManager.instance.TimerUI(_time);
                 }
@@ -169,24 +168,27 @@ public class GameManager : MonoBehaviour
         if (_properties.Rigid.isKinematic == false)
             _properties.Rigid.isKinematic = true;
     }
-    void CalCulateDirection()
+    public void CheckDirection()
     {
-        if (DirectionalPoints.Count != 0)
+        if (StartGame == true)
         {
-            forward = _properties.gameObject.transform.TransformDirection(Vector3.forward);
-            toOther = DirectionalPoints[0].transform.position - _properties.gameObject.transform.position;
-               
-
-            if (Vector3.Dot(forward, toOther) < 0)
+            if (CheckPointsList != null)
             {
-                UiManager.instance.WrongWayUi(true);
-            }
-            else
-            {
-                UiManager.instance.WrongWayUi(false);
+                float distTemp = Vector3.Distance(CheckPointsList[0].position, _properties.gameObject.transform.position);
+                if (distTemp < dist)
+                {
+                    dist = distTemp;
+                    UiManager.instance.WrongWayUi(false);
+                }
+                else if (distTemp > dist)
+                { // rigorous checking
+                    dist = distTemp;
+                    UiManager.instance.WrongWayUi(true);
+                }
             }
         }
     }
+
     public void Restart()
     {
         Audio(click);
@@ -211,20 +213,20 @@ public class GameManager : MonoBehaviour
     }
     public void Resume_lose()
     {
-        
+
         Audio(click);
 
-        
-            try
-            {
-                AdManager.Instance.DiplayRewardVideo(4);
-               
-            }
-            catch
-            {
-                Debug.Log("dd");
-            }
-        
+
+        try
+        {
+            AdManager.Instance.DiplayRewardVideo(4);
+
+        }
+        catch
+        {
+            Debug.Log("dd");
+        }
+
     }
     void ResumeLose_result()
     {
@@ -249,17 +251,17 @@ public class GameManager : MonoBehaviour
         if (RewardDone == false)
         {
             Audio(click);
-            
-                try
-                {
-                    AdManager.Instance.DiplayRewardVideo(5);
 
-                }
-                catch
-                {
-                    Debug.Log("dd");
-                }
-            
+            try
+            {
+                AdManager.Instance.DiplayRewardVideo(5);
+
+            }
+            catch
+            {
+                Debug.Log("dd");
+            }
+
         }
     }
     void RewardedResult()
@@ -371,22 +373,22 @@ public class GameManager : MonoBehaviour
             _audiosource.PlayOneShot(_audioClip);
        
     }
-    public void DeleteDirectionalPoint(GameObject Obj)
+    public void DeleteCheckPoint(GameObject Obj)
     {
-        DirectionalPoints.Remove(Obj.transform);
+        CheckPointsList.Remove(Obj.transform);
     }
     public void Interstitial()
     {
-        
-            try
-            {
-                AdManager.Instance.LoadIntestellarAds();
-            }
-            catch
-            {
-                Debug.Log("dd");
-            }
-        
+
+        try
+        {
+            AdManager.Instance.LoadIntestellarAds();
+        }
+        catch
+        {
+            Debug.Log("dd");
+        }
+
     }
     
     private void OnEnable()

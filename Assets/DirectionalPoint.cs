@@ -8,7 +8,7 @@ public class DirectionalPoint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.instance.DeleteDirectionalPoint(this.gameObject);
+            //GameManager.instance.DeleteDirectionalPoint(this.gameObject);
             Destroy(this.gameObject);
         }
     }

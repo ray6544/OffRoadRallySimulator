@@ -10,6 +10,7 @@ public class CheckPoint : MonoBehaviour
         Debug.Log(other.tag);
         if(other.gameObject.tag == "Player")
         {
+            GameManager.instance.DeleteCheckPoint(this.gameObject);
             Debug.Log(other.tag);
             ActivateCheckPoint();
         }
