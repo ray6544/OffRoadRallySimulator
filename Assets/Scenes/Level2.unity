@@ -6030,6 +6030,31 @@ PrefabInstance:
       propertyPath: _Vehicles.Array.data[4]
       value: 
       objectReference: {fileID: 291392859}
+    - target: {fileID: 6057109803013545351, guid: 091c9ea19554c084884846fea33f4f54,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057109803030296755, guid: 091c9ea19554c084884846fea33f4f54,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057109803030296755, guid: 091c9ea19554c084884846fea33f4f54,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057109804359175589, guid: 091c9ea19554c084884846fea33f4f54,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057109804510894162, guid: 091c9ea19554c084884846fea33f4f54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 091c9ea19554c084884846fea33f4f54, type: 3}
 --- !u!114 &816862978 stripped

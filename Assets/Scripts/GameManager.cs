@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Timer();
-        CheckDirection();
+        //CheckDirection();
     }
     void Timer()
     {
@@ -168,26 +168,26 @@ public class GameManager : MonoBehaviour
         if (_properties.Rigid.isKinematic == false)
             _properties.Rigid.isKinematic = true;
     }
-    public void CheckDirection()
-    {
-        if (StartGame == true)
-        {
-            if (CheckPointsList != null)
-            {
-                float distTemp = Vector3.Distance(CheckPointsList[0].position, _properties.gameObject.transform.position);
-                if (distTemp < dist)
-                {
-                    dist = distTemp;
-                    UiManager.instance.WrongWayUi(false);
-                }
-                else if (distTemp > dist)
-                { // rigorous checking
-                    dist = distTemp;
-                    UiManager.instance.WrongWayUi(true);
-                }
-            }
-        }
-    }
+    //public void CheckDirection()
+   // {
+     //   if (StartGame == true)
+     //   {
+      //      if (CheckPointsList != null)
+        //    {
+      //          float distTemp = Vector3.Distance(CheckPointsList[0].position, _properties.gameObject.transform.position);
+         //       if (distTemp < dist)
+        //        {
+         //           dist = distTemp;
+         //           UiManager.instance.WrongWayUi(false);
+          //      }
+          //      else if (distTemp > dist)
+           //   { // rigorous checking
+           //         dist = distTemp;
+            //        UiManager.instance.WrongWayUi(true);
+         //       }
+          //  }
+       // }
+   // }
 
     public void Restart()
     {

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -333,17 +333,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _RewardedTypes: 0
-  publishingApp: 0
-  testRewardId: ca-app-pub-3940256099942544/5224354917
-  testIntestellarId: ca-app-pub-3940256099942544/1033173712
-  testBannerId: ca-app-pub-3940256099942544/6300978111
-  RewardId: 
-  InterstitialId: 
-  BannerId: 
-  GameId: 4623967
-  GameMode: 1
-  Interstitial: Interstitial_Android
-  Interstitialvideo: Rewarded_Android
+  publishingApp: 1
+  testRewardId: ca-app-pub-5768302844754090/6502898828
+  testIntestellarId: ca-app-pub-5768302844754090/2406589764
+  testBannerId: ca-app-pub-5768302844754090/2857498985
+  RewardId: ca-app-pub-5768302844754090/6502898828
+  InterstitialId: ca-app-pub-5768302844754090/2406589764
+  BannerId: ca-app-pub-5768302844754090/2857498985
+  GameId: 4634397
+  GameMode: 0
+  Interstitial: interstitialuni
+  Interstitialvideo: rewarded_uni
   ClicksRateInGame: 0
 --- !u!4 &1059735209
 Transform:
