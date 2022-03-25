@@ -24,9 +24,9 @@ using UnityEngine.Purchasing;
         // kProductIDSubscription - it has custom Apple and Google identifiers. We declare their store-
         // specific mapping to Unity Purchasing's AddProduct, below.
        
-        public static string kProductIDNonConsumable = "AdRemove";
-    public static string kProductIDNonConsumable1 = "UnlockAllVehicles";
-    public static string kProductIDNonConsumable2 = "UnlockAllLevels";
+        public static string kProductIDNonConsumable = "ad_remove";
+    public static string kProductIDNonConsumable1 = "unlock_all_vehicles";
+    public static string kProductIDNonConsumable2 = "unlock_all_levels";
     public static string kProductIDSubscription = "subscription";
 
         // Apple App Store-specific product identifier for the subscription product.

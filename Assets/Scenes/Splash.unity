@@ -334,12 +334,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _RewardedTypes: 0
   publishingApp: 1
-  testRewardId: ca-app-pub-5768302844754090/6502898828
-  testIntestellarId: ca-app-pub-5768302844754090/2406589764
-  testBannerId: ca-app-pub-5768302844754090/2857498985
-  RewardId: ca-app-pub-5768302844754090/6502898828
-  InterstitialId: ca-app-pub-5768302844754090/2406589764
-  BannerId: ca-app-pub-5768302844754090/2857498985
+  testRewardId: ca-app-pub-5768302844754090/3587505572
+  testIntestellarId: ca-app-pub-5768302844754090/2289885718
+  testBannerId: ca-app-pub-5768302844754090/9002633722
+  RewardId: ca-app-pub-5768302844754090/3587505572
+  InterstitialId: ca-app-pub-5768302844754090/2289885718
+  BannerId: ca-app-pub-5768302844754090/9002633722
   GameId: 4634397
   GameMode: 0
   Interstitial: interstitialuni
