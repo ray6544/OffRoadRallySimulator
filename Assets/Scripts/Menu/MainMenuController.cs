@@ -134,7 +134,7 @@ public class MainMenuController : MonoBehaviour
             SoundManager.instance.IsLoading(true);
             Loading.GetComponent<Splash>().LoadingSceneName = scenename;
             Loading.SetActive(true);
-            Interstitial();
+         //   Interstitial();
         
     }
     public void SceneChange_(string scenename)
@@ -696,7 +696,7 @@ public class MainMenuController : MonoBehaviour
         InAppPurchase.instance.BuyNonConsumable_removeads();
     }
     //--------------Ads---------------
-    public void Interstitial()
+ /*   public void Interstitial()
     {
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
@@ -710,7 +710,7 @@ public class MainMenuController : MonoBehaviour
             }
         }
     }
-  
+  */
 }
 [System.Serializable]
 public class VehicleProperties
