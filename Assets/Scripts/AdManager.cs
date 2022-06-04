@@ -36,7 +36,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     public delegate void Ads();
     public static Ads  CoinsRush , coinCash_grage , coinCash_lvlSel , Rewarededlos , DoubleReward ;
     int RewardedType;
-    private BannerView bannerView;
+   // private BannerView bannerView;
     private InterstitialAd interstitialAd;
     private RewardedAd rewardedAd;
     //when publishing app 
@@ -86,7 +86,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         }
         //REQUEST VIDEO
         this.RequestRewardBasedVideo();
-        this.RequestBanner();
+        //this.RequestBanner();
         RequestInterstitial();
         IniUnity();
 
@@ -116,37 +116,37 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         this.interstitialAd.LoadAd(request);
     }
     
-    private void RequestBanner()
-    {
-        string adUnitId = "";
-        if (publishingApp)
-        {
-#if UNITY_ANDROID
-            adUnitId = BannerId;
-#endif
+//    private void RequestBanner()
+//    {
+//        string adUnitId = "";
+//        if (publishingApp)
+//        {
+//#if UNITY_ANDROID
+//            adUnitId = BannerId;
+//#endif
 
-        }
-        else
-        {
-#if UNITY_ANDROID
-            adUnitId = testBannerId;
-#endif
-        }
-        AdSize adaptiveSize =new
-                AdSize(320,50);
+//        }
+//        else
+//        {
+//#if UNITY_ANDROID
+//            adUnitId = testBannerId;
+//#endif
+//        }
+//        AdSize adaptiveSize =new
+//                AdSize(320,50);
 
-        this.bannerView = new BannerView(adUnitId, adaptiveSize, AdPosition.TopRight);
-
-
-        // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
-
-        // Load the banner with the request.
-        this.bannerView.LoadAd(request);
+//        this.bannerView = new BannerView(adUnitId, adaptiveSize, AdPosition.TopRight);
 
 
+//        // Create an empty ad request.
+//        AdRequest request = new AdRequest.Builder().Build();
 
-    }
+//        // Load the banner with the request.
+//        this.bannerView.LoadAd(request);
+
+
+
+//    }
     
     private void RequestRewardBasedVideo()
     {
@@ -219,23 +219,23 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
             }
         }
     }
-    public void DisplayBanner()
-    {
-        if (PlayerPrefs.GetInt("Noads") == 0)
-        {
-            if (InternetConnectivity() == true)
-            {
-                bannerView.Show();
-            }
-        }
-    }
-    public void UndisplayBanner()
-    {
-        if (InternetConnectivity() == true)
-        {
-            bannerView.Hide();
-        }
-    }
+    //public void DisplayBanner()
+    //{
+    //    if (PlayerPrefs.GetInt("Noads") == 0)
+    //    {
+    //        if (InternetConnectivity() == true)
+    //        {
+    //            bannerView.Show();
+    //        }
+    //    }
+    //}
+    //public void UndisplayBanner()
+    //{
+    //    if (InternetConnectivity() == true)
+    //    {
+    //        bannerView.Hide();
+    //    }
+    //}
     public bool IsRewardedVideoLoaded()
     {
         return rewardedAd.IsLoaded();

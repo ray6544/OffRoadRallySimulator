@@ -30,7 +30,7 @@ public class LevelSelectionController : MonoBehaviour
     }
     void Init()
     {
-        AdManager.Instance.DisplayBanner();
+       // AdManager.Instance.DisplayBanner();
         SoundManager.instance.GameMusic();
         SoundManager.instance.AudioListnereMute(SoundManager.instance.GetSoundFx());
         levelPositions = new Dictionary<int, int>();
@@ -211,19 +211,24 @@ public class LevelSelectionController : MonoBehaviour
     {
         if (IsLocked == false)
         {
-            AdManager.Instance.UndisplayBanner();
+           // AdManager.Instance.UndisplayBanner();
             SoundManager.instance.IsLoading(true);
             Debug.Log(DataManager.instance.GetLevelNumber());
             Loading_panel.GetComponent<Splash>().LoadingSceneName = "Level" + DataManager.instance.GetLevelNumber();
+            AdManager.Instance.LoadIntestellarAds();
+            AdManager.Instance.LoadIntestellarAds(); 
             Loading_panel.SetActive(true);
+            
         }
     }
     public void BackLevel()
     {
-        AdManager.Instance.UndisplayBanner();
+       // AdManager.Instance.UndisplayBanner();
         SoundManager.instance.IsLoading(true);
         Loading_panel.GetComponent<Splash>().LoadingSceneName = "MainMenu";
+        AdManager.Instance.LoadIntestellarAds();
         Loading_panel.SetActive(true);
+        
     }
     public void Audio(AudioClip _audioClip)
     {

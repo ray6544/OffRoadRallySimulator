@@ -57,6 +57,7 @@ public class MainMenuController : MonoBehaviour
     [Header("Sound")]
     public AudioSource _audiosource;
     public AudioClip Click, SelectionClick, Alert, congrets;
+   
     void Start()
     {
         Init();
@@ -98,7 +99,19 @@ public class MainMenuController : MonoBehaviour
         SetPlayerNameTag(DataManager.instance.GetCarId());
         if (DataManager.instance.GetIsCoinsRush() == true)
             DataManager.instance.SetIsCoinsRush(false);
-       
+        if (!PlayerPrefs.HasKey("IsReviewed"))
+            PlayerPrefs.GetInt("IsReviewed", 0);
+        if (PlayerPrefs.GetInt("IsReviewed") == 0)
+        {
+            StartCoroutine(Init_());
+        }
+    }
+   
+    IEnumerator Init_()
+    {
+        yield return new WaitForSeconds(2.0f);
+        OtherEventsConfirmationPanelUi(2);
+
     }
     public void InitializeVehicles()
     {
@@ -129,20 +142,27 @@ public class MainMenuController : MonoBehaviour
     public void SceneChange(string scenename)
     {
         
-            AdManager.Instance.UndisplayBanner();
+            //AdManager.Instance.UndisplayBanner();
             Audio(Click);
             SoundManager.instance.IsLoading(true);
             Loading.GetComponent<Splash>().LoadingSceneName = scenename;
             Loading.SetActive(true);
+<<<<<<< Updated upstream
             Interstitial();
         
+=======
+        AdManager.Instance.LoadIntestellarAds();
+        //   Interstitial();
+
+>>>>>>> Stashed changes
     }
     public void SceneChange_(string scenename)
     {
-        AdManager.Instance.UndisplayBanner();
+       // AdManager.Instance.UndisplayBanner();
         SoundManager.instance.IsLoading(true);
         Loading.GetComponent<Splash>().LoadingSceneName = scenename;
         Loading.SetActive(true);
+        AdManager.Instance.LoadIntestellarAds();
     }
     public void AdRemove()
     {
@@ -165,7 +185,7 @@ public class MainMenuController : MonoBehaviour
                     MainMenu_header.Show();
                     MainMenu_footer.Show();
                     
-                        AdManager.Instance.DisplayBanner();
+                       // AdManager.Instance.DisplayBanner();
                    
                 }
                 if (Grage_header.isVisible)
@@ -359,6 +379,7 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
+            AdManager.Instance.LoadIntestellarAds();
             Donnothaveenoughcoins.Toggle();
         }
     }
@@ -541,6 +562,7 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                    AdManager.Instance.LoadIntestellarAds();
                     Donnothaveenoughcoins.Toggle();
                 }
                 break;
@@ -552,6 +574,7 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                    AdManager.Instance.LoadIntestellarAds(); 
                     Donnothaveenoughcoins.Toggle();
                 }
                 break;
@@ -563,6 +586,7 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                    AdManager.Instance.LoadIntestellarAds(); 
                     Donnothaveenoughcoins.Toggle();
                 }
                 break;
@@ -574,6 +598,7 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                    AdManager.Instance.LoadIntestellarAds(); 
                     Donnothaveenoughcoins.Toggle();
                 }
                 break;
@@ -618,6 +643,10 @@ public class MainMenuController : MonoBehaviour
                 break;
             case Confirmation.likeit:
                 Application.OpenURL(LikeIt_string);
+                if (PlayerPrefs.GetInt("IsReviewed") == 0)
+                {
+                    PlayerPrefs.SetInt("IsReviewed", 1);
+                }
                 break;
             case Confirmation.CoinsRush:
                 SelectionOfCoinsRush();
@@ -660,6 +689,7 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
+            AdManager.Instance.LoadIntestellarAds(); 
             ConnectivityPanel.Toggle();
         }
 
@@ -672,6 +702,7 @@ public class MainMenuController : MonoBehaviour
         {
             DataManager.instance.SetIsCoinsRush(true);
         }
+        AdManager.Instance.LoadIntestellarAds();
         SceneChange_("CoinsRush");
     }
     private void OnEnable()
