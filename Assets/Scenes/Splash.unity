@@ -333,7 +333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _RewardedTypes: 0
-<<<<<<< Updated upstream
   publishingApp: 1
   testRewardId: ca-app-pub-5768302844754090/3587505572
   testIntestellarId: ca-app-pub-5768302844754090/2289885718
@@ -345,19 +344,6 @@ MonoBehaviour:
   GameMode: 0
   Interstitial: interstitialuni
   Interstitialvideo: rewarded_uni
-=======
-  publishingApp: 0
-  testRewardId: ca-app-pub-5768302844754090/3587505572
-  testIntestellarId: ' ca-app-pub-5768302844754090/2289885718'
-  testBannerId: ' ca-app-pub-5768302844754090/9002633722'
-  RewardId: ca-app-pub-5768302844754090/3587505572
-  InterstitialId: ' ca-app-pub-5768302844754090/2289885718'
-  BannerId: ' ca-app-pub-5768302844754090/9002633722'
-  GameId: 4623967
-  GameMode: 1
-  Interstitial: Interstitial_Android
-  Interstitialvideo: Rewarded_Android
->>>>>>> Stashed changes
   ClicksRateInGame: 0
 --- !u!4 &1059735209
 Transform:
