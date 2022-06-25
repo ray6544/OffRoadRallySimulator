@@ -590,15 +590,15 @@ public class MainMenuController : MonoBehaviour
                 ConfirmationIndex = index;
                 break;
             case Confirmation.moregame:
-                Confirmationtxt.text = "Enjoying this game? Go to our store page to get more exciting games like this one.";
+                Confirmationtxt.text = "Do You Wanna Open MoreGames Link ?";
                 ConfirmationIndex = index;
                 break;
             case Confirmation.likeit:
-                Confirmationtxt.text = "Rate our game and also be sure to leave a review!!";
+                Confirmationtxt.text = "Do You Wanna Rate This Game ?";
                 ConfirmationIndex = index;
                 break;
             case Confirmation.CoinsRush:
-                Confirmationtxt.text = "Watch a video ad to play the coin rush challenge?";
+                Confirmationtxt.text = "Do You Wanna Open The Coins Rush Challenge ?";
                 ConfirmationIndex = index;
                 break;
 
