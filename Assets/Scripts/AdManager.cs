@@ -78,7 +78,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         else
         {
             List<string> deviceIds = new List<string>();
-            deviceIds.Add("8941007811614713527");
+            deviceIds.Add("2077ef9a63d2b398840261c8221a0c9b");
             RequestConfiguration requestConfiguration = new RequestConfiguration
                 .Builder()
                 .SetTestDeviceIds(deviceIds)
@@ -120,13 +120,13 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     {
         string adUnitId = "";
         if (publishingApp)
-     {
+        {
 #if UNITY_ANDROID
-           adUnitId = BannerId;
+            adUnitId = BannerId;
 #endif
 
         }
-     else
+        else
         {
 #if UNITY_ANDROID
             adUnitId = testBannerId;
@@ -146,7 +146,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
 
 
-   }
+    }
     
     private void RequestRewardBasedVideo()
     {

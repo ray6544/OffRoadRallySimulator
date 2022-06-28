@@ -16454,7 +16454,7 @@ MonoBehaviour:
   SoundBtn: {fileID: 571158820}
   SoundOn: {fileID: 21300000, guid: 70c543847092d3541a64689b86648bb7, type: 3}
   SoundOff: {fileID: 21300000, guid: e93c51f02dbe8ff4883c28700886da35, type: 3}
-  LikeIt_string: https://play.google.com/store/apps/details?id=com.DzynerZ.monster.truck.legend:Off-road
+  LikeIt_string: https://play.google.com/store/apps/details?id=com.DzynerZ.OffRoadRallySimulator
   MoreGames_string: https://play.google.com/store/apps/dev?id=6629085804522848973
   PrivacyPolicy_string: https://dzynerz.github.io/
   Cams:

@@ -379,7 +379,8 @@ void Update()
         {
             
             Donnothaveenoughcoins.Toggle();
-    
+            Interstitial();
+
         }
     }
     public void AddCoins(int coins)
@@ -563,7 +564,8 @@ void Update()
                 {
                    
                     Donnothaveenoughcoins.Toggle();
-             
+                    Interstitial();
+
                 }
                 break;
             case Properties.speed:
@@ -576,7 +578,8 @@ void Update()
                 {
                     
                     Donnothaveenoughcoins.Toggle();
-                 
+                    Interstitial();
+
                 }
                 break;
             case Properties.braking:
@@ -589,7 +592,8 @@ void Update()
                 {
                     
                     Donnothaveenoughcoins.Toggle();
-                 
+                    Interstitial();
+
                 }
                 break;
             case Properties.Handling:
@@ -602,7 +606,8 @@ void Update()
                 {
                    
                     Donnothaveenoughcoins.Toggle();
-                  
+                    Interstitial();
+
                 }
                 break;
         }
