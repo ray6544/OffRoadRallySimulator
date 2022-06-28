@@ -59,11 +59,28 @@ public class MainMenuController : MonoBehaviour
     public AudioClip Click, SelectionClick, Alert, congrets;
     void Start()
     {
-        Init();
+            Init();
+ 
+         SetPlayerNameTag(DataManager.instance.GetCarId());
+        if (DataManager.instance.GetIsCoinsRush() == true)
+            DataManager.instance.SetIsCoinsRush(false);
+        if (!PlayerPrefs.HasKey("IsReviewed"))
+            PlayerPrefs.GetInt("IsReviewed", 0);
+        if (PlayerPrefs.GetInt("IsReviewed") == 0)
+        {
+            StartCoroutine(Init_());
+}
     }
+   
+    IEnumerator Init_()
+{
+    yield return new WaitForSeconds(2.0f);
+    OtherEventsConfirmationPanelUi(2);
 
-    // Update is called once per frame
-    void Update()
+}
+
+// Update is called once per frame
+void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
@@ -129,7 +146,7 @@ public class MainMenuController : MonoBehaviour
     public void SceneChange(string scenename)
     {
         
-            AdManager.Instance.UndisplayBanner();
+         AdManager.Instance.UndisplayBanner();
             Audio(Click);
             SoundManager.instance.IsLoading(true);
             Loading.GetComponent<Splash>().LoadingSceneName = scenename;
@@ -139,10 +156,11 @@ public class MainMenuController : MonoBehaviour
     }
     public void SceneChange_(string scenename)
     {
-        AdManager.Instance.UndisplayBanner();
+      AdManager.Instance.UndisplayBanner();
         SoundManager.instance.IsLoading(true);
         Loading.GetComponent<Splash>().LoadingSceneName = scenename;
         Loading.SetActive(true);
+        Interstitial();
     }
     public void AdRemove()
     {
@@ -165,7 +183,7 @@ public class MainMenuController : MonoBehaviour
                     MainMenu_header.Show();
                     MainMenu_footer.Show();
                     
-                        AdManager.Instance.DisplayBanner();
+               AdManager.Instance.DisplayBanner();
                    
                 }
                 if (Grage_header.isVisible)
@@ -359,7 +377,9 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
+            
             Donnothaveenoughcoins.Toggle();
+    
         }
     }
     public void AddCoins(int coins)
@@ -541,7 +561,9 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                   
                     Donnothaveenoughcoins.Toggle();
+             
                 }
                 break;
             case Properties.speed:
@@ -552,7 +574,9 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                    
                     Donnothaveenoughcoins.Toggle();
+                 
                 }
                 break;
             case Properties.braking:
@@ -563,7 +587,9 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                    
                     Donnothaveenoughcoins.Toggle();
+                 
                 }
                 break;
             case Properties.Handling:
@@ -574,7 +600,9 @@ public class MainMenuController : MonoBehaviour
                 }
                 else
                 {
+                   
                     Donnothaveenoughcoins.Toggle();
+                  
                 }
                 break;
         }
@@ -586,19 +614,23 @@ public class MainMenuController : MonoBehaviour
         switch ((Confirmation)index)
         {
             case Confirmation.Privacy:
-                Confirmationtxt.text = "Do You Wanna Open Privacy Link ?";
+                Confirmationtxt.text = "Proceed to privacy policy ?";
                 ConfirmationIndex = index;
                 break;
             case Confirmation.moregame:
-                Confirmationtxt.text = "Do You Wanna Open MoreGames Link ?";
+                Confirmationtxt.text = "Loving this game ? get more like it";
                 ConfirmationIndex = index;
                 break;
             case Confirmation.likeit:
-                Confirmationtxt.text = "Do You Wanna Rate This Game ?";
+                Confirmationtxt.text = "Rate this game and also dont forget to leave a review to help us improve your experience ?";
                 ConfirmationIndex = index;
+                if (PlayerPrefs.GetInt("IsReviewed") == 0)
+                {
+                    PlayerPrefs.SetInt("IsReviewed", 1);
+                }
                 break;
             case Confirmation.CoinsRush:
-                Confirmationtxt.text = "Do You Wanna Open The Coins Rush Challenge ?";
+                Confirmationtxt.text = "Watch an AD to play the special event ?";
                 ConfirmationIndex = index;
                 break;
 
@@ -677,13 +709,13 @@ public class MainMenuController : MonoBehaviour
     private void OnEnable()
     {
         InAppPurchase._unlockAllVehicles += InitializeVehicles_;
-      //  AdManager.CoinsRush += SelectionOfCoinsRush_result;
+      AdManager.CoinsRush += SelectionOfCoinsRush_result;
         AdManager.coinCash_grage += AddCoinsResult;
     }
     private void OnDisable()
     {
         InAppPurchase._unlockAllVehicles -= InitializeVehicles_;
-       // AdManager.CoinsRush -= SelectionOfCoinsRush_result;
+     AdManager.CoinsRush -= SelectionOfCoinsRush_result;
         AdManager.coinCash_grage -= AddCoinsResult;
     }
     public void UunlockAllVehicles_InApp()
